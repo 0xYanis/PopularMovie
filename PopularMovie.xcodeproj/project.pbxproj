@@ -11,7 +11,7 @@
 		091F4C082993D38C00274A9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091F4C072993D38C00274A9B /* SceneDelegate.swift */; };
 		091F4C0F2993D39200274A9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 091F4C0E2993D39200274A9B /* Assets.xcassets */; };
 		091F4C122993D39200274A9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 091F4C102993D39200274A9B /* LaunchScreen.storyboard */; };
-		091F4C202993D60200274A9B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091F4C1F2993D60200274A9B /* HomeViewController.swift */; };
+		091F4C202993D60200274A9B /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091F4C1F2993D60200274A9B /* HomePageController.swift */; };
 		091F4C222993D6C600274A9B /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091F4C212993D6C600274A9B /* BaseController.swift */; };
 		091F4C242993D8B700274A9B /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091F4C232993D8B700274A9B /* UIView+Layout.swift */; };
 		09672F932995AEC600931891 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672F922995AEC600931891 /* BaseTabBarController.swift */; };
@@ -19,7 +19,6 @@
 		09672F982995B61F00931891 /* HomeGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672F972995B61F00931891 /* HomeGroupCell.swift */; };
 		09672F9B2995B6E000931891 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672F9A2995B6E000931891 /* Extensions.swift */; };
 		09672F9D2995B92500931891 /* HomeHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672F9C2995B92500931891 /* HomeHorizontalController.swift */; };
-		09672F9F2995B96200931891 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672F9E2995B96200931891 /* HorizontalSnappingController.swift */; };
 		09672FA12995B98300931891 /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672FA02995B98300931891 /* BetterSnappingLayout.swift */; };
 		09672FA32995C0AE00931891 /* HomeRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672FA22995C0AE00931891 /* HomeRowCell.swift */; };
 		09672FA52995C36E00931891 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672FA42995C36E00931891 /* VerticalStackView.swift */; };
@@ -34,7 +33,7 @@
 		091F4C0E2993D39200274A9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		091F4C112993D39200274A9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		091F4C132993D39200274A9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		091F4C1F2993D60200274A9B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		091F4C1F2993D60200274A9B /* HomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
 		091F4C212993D6C600274A9B /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		091F4C232993D8B700274A9B /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		09672F922995AEC600931891 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
@@ -42,7 +41,6 @@
 		09672F972995B61F00931891 /* HomeGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGroupCell.swift; sourceTree = "<group>"; };
 		09672F9A2995B6E000931891 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		09672F9C2995B92500931891 /* HomeHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHorizontalController.swift; sourceTree = "<group>"; };
-		09672F9E2995B96200931891 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		09672FA02995B98300931891 /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
 		09672FA22995C0AE00931891 /* HomeRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRowCell.swift; sourceTree = "<group>"; };
 		09672FA42995C36E00931891 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 			children = (
 				091F4C212993D6C600274A9B /* BaseController.swift */,
 				09672F922995AEC600931891 /* BaseTabBarController.swift */,
-				09672F9E2995B96200931891 /* HorizontalSnappingController.swift */,
 				09672F8E2995A2E000931891 /* Home */,
 				09672F8F2995A2EF00931891 /* Detail */,
 			);
@@ -152,7 +149,7 @@
 		09672F8E2995A2E000931891 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				091F4C1F2993D60200274A9B /* HomeViewController.swift */,
+				091F4C1F2993D60200274A9B /* HomePageController.swift */,
 				09672F9C2995B92500931891 /* HomeHorizontalController.swift */,
 			);
 			path = Home;
@@ -257,8 +254,7 @@
 				09C4B67929965E2D00F49402 /* Service.swift in Sources */,
 				091F4C082993D38C00274A9B /* SceneDelegate.swift in Sources */,
 				09672FA12995B98300931891 /* BetterSnappingLayout.swift in Sources */,
-				09672F9F2995B96200931891 /* HorizontalSnappingController.swift in Sources */,
-				091F4C202993D60200274A9B /* HomeViewController.swift in Sources */,
+				091F4C202993D60200274A9B /* HomePageController.swift in Sources */,
 				09672FA52995C36E00931891 /* VerticalStackView.swift in Sources */,
 				09C4B67729965D6C00F49402 /* Movie.swift in Sources */,
 			);

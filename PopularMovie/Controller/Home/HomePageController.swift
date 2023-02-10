@@ -7,9 +7,10 @@
 
 import UIKit
 
-class HomeViewController: BaseController {
+class HomePageController: BaseController {
 	
 	
+	fileprivate let headerId = "headerId"
 	fileprivate let cellId = "cellId"
 	
 	
@@ -21,7 +22,14 @@ class HomeViewController: BaseController {
 		collectionView.showsVerticalScrollIndicator = false
 		
 		
+		collectionView.register(HomeHeader.self,forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
 		collectionView.register(HomeGroupCell.self, forCellWithReuseIdentifier: cellId)
+	}
+	
+	
+	override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+		let header = collectionView.dequeueReusableCell(withReuseIdentifier: headerId, for: indexPath)
+		return header
 	}
 	
 	
@@ -37,7 +45,7 @@ class HomeViewController: BaseController {
 }
 
 // MARK: - DelegateFlowLayout protocol
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
+extension HomePageController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		return .init(width: view.frame.width, height: 280)
 	}
