@@ -10,6 +10,7 @@ import UIKit
 class HomeHeader: UICollectionReusableView {
 	
 	
+	let titleLabel = UILabel(text: "Popular Movie", font: .boldSystemFont(ofSize: 20))
 	let headerHorizontalController = HeaderHorizontalController()
 	
 	
@@ -17,8 +18,12 @@ class HomeHeader: UICollectionReusableView {
 		super.init(frame: frame)
 		
 		
+		addSubview(titleLabel)
+		titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 0))
+		
+		
 		addSubview(headerHorizontalController.view)
-		headerHorizontalController.view.fillSuperview()
+		headerHorizontalController.view.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
 	}
 	
 	required init?(coder: NSCoder) {

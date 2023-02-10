@@ -34,12 +34,12 @@ class HomePageController: BaseController {
 	
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-		return .init(width: view.frame.width, height: 250)
+		return .init(width: view.frame.width, height: 280)
 	}
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 5
+		return 3
 	}
 	
 	

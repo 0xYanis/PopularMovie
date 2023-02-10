@@ -11,7 +11,6 @@ class HomeHorizontalController: BaseController {
 	
 	
 	fileprivate let cellId = "cellId"
-	fileprivate let topBottonPadding: CGFloat = 12
 	
 	
 	override func viewDidLoad() {
@@ -43,6 +42,6 @@ class HomeHorizontalController: BaseController {
 //MARK: - DelegateFlowLayout protocol
 extension HomeHorizontalController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return .init(width: view.frame.width - 260, height: view.frame.height - 32)
+		return .init(width: view.frame.width - 260, height: view.frame.height - 8)
 	}
 }
