@@ -26,6 +26,7 @@
 		09C4B67929965E2D00F49402 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67829965E2D00F49402 /* Service.swift */; };
 		09C4B67B2996672F00F49402 /* HeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67A2996672F00F49402 /* HeaderHorizontalController.swift */; };
 		09C4B67D2996677800F49402 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67C2996677800F49402 /* HorizontalSnappingController.swift */; };
+		09C4B67F29966D3D00F49402 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67E29966D3D00F49402 /* HomeHeaderCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		09C4B67829965E2D00F49402 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		09C4B67A2996672F00F49402 /* HeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderHorizontalController.swift; sourceTree = "<group>"; };
 		09C4B67C2996677800F49402 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
+		09C4B67E29966D3D00F49402 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,8 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				091F4C1F2993D60200274A9B /* HomePageController.swift */,
-				09672F9C2995B92500931891 /* HomeHorizontalController.swift */,
 				09C4B67A2996672F00F49402 /* HeaderHorizontalController.swift */,
+				09672F9C2995B92500931891 /* HomeHorizontalController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -174,6 +176,7 @@
 				09672F952995B13B00931891 /* HomeHeader.swift */,
 				09672F972995B61F00931891 /* HomeGroupCell.swift */,
 				09672FA22995C0AE00931891 /* HomeRowCell.swift */,
+				09C4B67E29966D3D00F49402 /* HomeHeaderCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				091F4C242993D8B700274A9B /* UIView+Layout.swift in Sources */,
 				09C4B67B2996672F00F49402 /* HeaderHorizontalController.swift in Sources */,
 				09672F932995AEC600931891 /* BaseTabBarController.swift in Sources */,
+				09C4B67F29966D3D00F49402 /* HomeHeaderCell.swift in Sources */,
 				091F4C062993D38C00274A9B /* AppDelegate.swift in Sources */,
 				09672F982995B61F00931891 /* HomeGroupCell.swift in Sources */,
 				09672F962995B13B00931891 /* HomeHeader.swift in Sources */,
