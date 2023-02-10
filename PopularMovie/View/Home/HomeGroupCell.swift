@@ -10,7 +10,7 @@ import UIKit
 class HomeGroupCell: UICollectionViewCell {
 	
 	
-	let titleLabel = UILabel(text: "TV Show", font: .boldSystemFont(ofSize: 20))
+	let titleLabel = UILabel(text: "TV Show", font: .boldSystemFont(ofSize: 20), color: .white)
 	let horizontalController = HomeHorizontalController()
 	
 	override init(frame: CGRect) {

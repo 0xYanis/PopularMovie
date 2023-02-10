@@ -11,8 +11,8 @@ class HomeHeaderCell: UICollectionViewCell {
 	
 	
 	let imageView = UIImageView(cornerRadius: 10)
-	let nameLabel = UILabel(text: "Name of Movie", font: .systemFont(ofSize: 14), numberOfLines: 1)
-	let dateLabel = UILabel(text: "Aug. 22, 2020", font: .systemFont(ofSize: 11), numberOfLines: 1)
+	let nameLabel = UILabel(text: "Name of Movie", font: .systemFont(ofSize: 14), color: .white)
+	let dateLabel = UILabel(text: "Aug. 22, 2020", font: .systemFont(ofSize: 11), color: .gray)
 	
 	
 	override init(frame: CGRect) {

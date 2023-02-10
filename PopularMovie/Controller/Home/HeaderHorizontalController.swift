@@ -17,6 +17,7 @@ class HeaderHorizontalController: HorizontalSnappingController {
 		super.viewDidLoad()
 		
 		
+		collectionView.backgroundColor = UIColor(named: "background")
 		collectionView.register(HomeHeaderCell.self, forCellWithReuseIdentifier: cellId)
 		collectionView.showsHorizontalScrollIndicator = false
 	}
@@ -43,5 +44,10 @@ extension HeaderHorizontalController: UICollectionViewDelegateFlowLayout {
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		return .init(width: view.frame.width - 240, height: view.frame.height)
+	}
+	
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+		return 15
 	}
 }

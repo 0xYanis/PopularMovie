@@ -17,6 +17,7 @@ class HomeHorizontalController: BaseController {
 		super.viewDidLoad()
 		
 		
+		collectionView.backgroundColor = UIColor(named: "background")
 		collectionView.showsHorizontalScrollIndicator = false
 		collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
 		collectionView.register(HomeRowCell.self, forCellWithReuseIdentifier: cellId)
@@ -43,5 +44,10 @@ class HomeHorizontalController: BaseController {
 extension HomeHorizontalController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		return .init(width: view.frame.width - 260, height: view.frame.height - 8)
+	}
+	
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+		return 15
 	}
 }

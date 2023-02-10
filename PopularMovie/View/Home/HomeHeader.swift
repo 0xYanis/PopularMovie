@@ -10,7 +10,7 @@ import UIKit
 class HomeHeader: UICollectionReusableView {
 	
 	
-	let titleLabel = UILabel(text: "Popular Movie", font: .boldSystemFont(ofSize: 20))
+	let titleLabel = UILabel(text: "Popular Movie", font: .boldSystemFont(ofSize: 20), color: .white)
 	let headerHorizontalController = HeaderHorizontalController()
 	
 	
