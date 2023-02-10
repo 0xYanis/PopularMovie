@@ -22,7 +22,7 @@
 		09672FA12995B98300931891 /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672FA02995B98300931891 /* BetterSnappingLayout.swift */; };
 		09672FA32995C0AE00931891 /* HomeRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672FA22995C0AE00931891 /* HomeRowCell.swift */; };
 		09672FA52995C36E00931891 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672FA42995C36E00931891 /* VerticalStackView.swift */; };
-		09C4B67729965D6C00F49402 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67629965D6C00F49402 /* Movie.swift */; };
+		09C4B67729965D6C00F49402 /* PopularMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67629965D6C00F49402 /* PopularMovie.swift */; };
 		09C4B67929965E2D00F49402 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67829965E2D00F49402 /* Service.swift */; };
 		09C4B67B2996672F00F49402 /* HeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67A2996672F00F49402 /* HeaderHorizontalController.swift */; };
 		09C4B67D2996677800F49402 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67C2996677800F49402 /* HorizontalSnappingController.swift */; };
@@ -47,7 +47,7 @@
 		09672FA02995B98300931891 /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
 		09672FA22995C0AE00931891 /* HomeRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRowCell.swift; sourceTree = "<group>"; };
 		09672FA42995C36E00931891 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
-		09C4B67629965D6C00F49402 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		09C4B67629965D6C00F49402 /* PopularMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovie.swift; sourceTree = "<group>"; };
 		09C4B67829965E2D00F49402 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		09C4B67A2996672F00F49402 /* HeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderHorizontalController.swift; sourceTree = "<group>"; };
 		09C4B67C2996677800F49402 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 		091F4C1B2993D49C00274A9B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				09C4B67629965D6C00F49402 /* Movie.swift */,
+				09C4B67629965D6C00F49402 /* PopularMovie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,7 +268,7 @@
 				09672FA12995B98300931891 /* BetterSnappingLayout.swift in Sources */,
 				091F4C202993D60200274A9B /* HomePageController.swift in Sources */,
 				09672FA52995C36E00931891 /* VerticalStackView.swift in Sources */,
-				09C4B67729965D6C00F49402 /* Movie.swift in Sources */,
+				09C4B67729965D6C00F49402 /* PopularMovie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

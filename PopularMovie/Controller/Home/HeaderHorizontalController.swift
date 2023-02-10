@@ -13,6 +13,9 @@ class HeaderHorizontalController: HorizontalSnappingController {
 	fileprivate let cellId = "cellId"
 	
 	
+	var popularMovies: Page?
+	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -24,13 +27,16 @@ class HeaderHorizontalController: HorizontalSnappingController {
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 10
+		return popularMovies?.pagesCount ?? 0
 	}
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-		
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeHeaderCell
+		let movie = popularMovies?.films[indexPath.item]
+		cell.imageView.loadImage(urlString: movie?.posterUrl ?? "")
+		cell.nameLabel.text = movie?.nameEn ?? movie?.nameRu
+		cell.dateLabel.text = movie?.year
 		return cell
 	}
 }

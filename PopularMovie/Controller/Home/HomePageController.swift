@@ -13,6 +13,7 @@ class HomePageController: BaseController {
 	fileprivate let headerId = "headerId"
 	fileprivate let cellId = "cellId"
 	
+	var popularMovies: Page?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -24,11 +25,26 @@ class HomePageController: BaseController {
 		
 		collectionView.register(HomeHeader.self,forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
 		collectionView.register(HomeGroupCell.self, forCellWithReuseIdentifier: cellId)
+		
+		
+		fetchData()
+	}
+	
+	
+	fileprivate func fetchData() {
+		Service.shared.fetchMovies { popularMovie, err in
+			self.popularMovies = popularMovie
+			DispatchQueue.main.async {
+				self.collectionView.reloadData()
+			}
+		}
 	}
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-		let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
+		let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! HomeHeader
+		header.headerHorizontalController.popularMovies = popularMovies
+		header.headerHorizontalController.collectionView.reloadData()
 		return header
 	}
 	
