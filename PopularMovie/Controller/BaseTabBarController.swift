@@ -39,6 +39,9 @@ class BaseTabBarController: UITabBarController {
 	
 	private func createNavController(_ viewController: UIViewController, title: String,tabbarTitle: String, imageName: String) -> UIViewController {
 		let navController = UINavigationController(rootViewController: viewController)
+		setCustomNavBar()
+		
+		
 		navController.navigationBar.prefersLargeTitles = true
 		navController.navigationBar.barStyle = .black
 		viewController.navigationItem.title = title
@@ -74,5 +77,12 @@ class BaseTabBarController: UITabBarController {
 		tabBar.isTranslucent = true
 		tabBar.tintColor = UIColor.tabBarItemAccent
 		tabBar.unselectedItemTintColor = UIColor.tabBarItemLight
+	}
+	
+	
+	private func setCustomNavBar() {
+		let redAttribut = [NSAttributedString.Key.foregroundColor: UIColor.NavBarTextColor]
+		UINavigationBar.appearance().largeTitleTextAttributes = redAttribut
+		UINavigationBar.appearance().titleTextAttributes = redAttribut
 	}
 }

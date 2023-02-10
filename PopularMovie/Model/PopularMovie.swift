@@ -7,12 +7,11 @@
 
 import Foundation
 
-// MARK: - Page
 struct Page: Decodable {
 	let films: [Film]
 }
 
-// MARK: - Item
+
 struct Film: Decodable {
 	let filmId: Int
 	let nameRu: String
