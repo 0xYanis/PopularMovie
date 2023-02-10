@@ -19,12 +19,9 @@ class HomeHeaderCell: UICollectionViewCell {
 		super.init(frame: frame)
 		
 		
-		imageView.backgroundColor = .blue
-		
-		
 		let stackView = VerticalStackView(arrangedSubviews: [
 			imageView, nameLabel, dateLabel
-		])
+		], spacing: 4)
 		addSubview(stackView)
 		stackView.fillSuperview(padding: .init(top: 8, left: 0, bottom: 0, right: 0))
 	}

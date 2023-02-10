@@ -15,7 +15,7 @@ class Service {
 	
 	
 	func fetchMovies(completion: @escaping (Page?, Error?) -> ()) {
-		let urlString = "https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=1"
+		let urlString = "https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1"
 		fetchGenericJSONData(urlString, completion: completion)
 		
 	}

@@ -27,7 +27,7 @@ class HeaderHorizontalController: HorizontalSnappingController {
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return popularMovies?.pagesCount ?? 0
+		return popularMovies?.films.count ?? 0
 	}
 	
 	
@@ -36,7 +36,7 @@ class HeaderHorizontalController: HorizontalSnappingController {
 		let movie = popularMovies?.films[indexPath.item]
 		cell.imageView.loadImage(urlString: movie?.posterUrl ?? "")
 		cell.nameLabel.text = movie?.nameEn ?? movie?.nameRu
-		cell.dateLabel.text = movie?.year
+		cell.dateLabel.text = movie?.year ?? "2023"
 		return cell
 	}
 }
