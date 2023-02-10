@@ -18,9 +18,9 @@ class HomeHorizontalController: BaseController {
 		super.viewDidLoad()
 		
 		
-		collectionView.backgroundColor = .blue
-		collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+		collectionView.showsHorizontalScrollIndicator = false
 		collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
+		collectionView.register(HomeRowCell.self, forCellWithReuseIdentifier: cellId)
 		
 		
 		if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
@@ -36,7 +36,6 @@ class HomeHorizontalController: BaseController {
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-		cell.backgroundColor = .red
 		return cell
 	}
 }
@@ -44,6 +43,6 @@ class HomeHorizontalController: BaseController {
 //MARK: - DelegateFlowLayout protocol
 extension HomeHorizontalController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return .init(width: view.frame.width - 250, height: view.frame.height - 32)
+		return .init(width: view.frame.width - 260, height: view.frame.height - 32)
 	}
 }

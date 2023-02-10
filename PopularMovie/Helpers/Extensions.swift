@@ -15,3 +15,21 @@ extension UILabel {
 		self.numberOfLines = numberOfLines
 	}
 }
+
+
+extension UIImageView {
+	convenience init(cornerRadius: CGFloat) {
+		self.init(image: nil)
+		self.layer.cornerRadius = cornerRadius
+		self.clipsToBounds = true
+		self.contentMode = .scaleAspectFill
+	}
+}
+
+
+extension UIStackView {
+	convenience init(arrangedSubviews: [UIView], customSpacing: CGFloat = 0) {
+		self.init(arrangedSubviews: arrangedSubviews)
+		self.spacing = customSpacing
+	}
+}
