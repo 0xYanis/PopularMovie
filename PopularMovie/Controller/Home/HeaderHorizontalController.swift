@@ -23,6 +23,7 @@ class HeaderHorizontalController: HorizontalSnappingController {
 		collectionView.backgroundColor = UIColor(named: "background")
 		collectionView.register(HomeHeaderCell.self, forCellWithReuseIdentifier: cellId)
 		collectionView.showsHorizontalScrollIndicator = false
+		collectionView.contentInset = .init(top: 0, left: 15, bottom: 0, right: 15)
 	}
 	
 	
@@ -44,7 +45,7 @@ class HeaderHorizontalController: HorizontalSnappingController {
 // MARK: - DelegateFlowLayout protocol
 extension HeaderHorizontalController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-		return .init(top: 0, left: 16, bottom: 0, right: 16)
+		return .init(top: 0, left: 0, bottom: 0, right: 0)
 	}
 	
 	

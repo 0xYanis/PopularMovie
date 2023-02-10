@@ -9,7 +9,6 @@ import Foundation
 
 // MARK: - Page
 struct Page: Decodable {
-	let pagesCount: Int
 	let films: [Film]
 }
 
