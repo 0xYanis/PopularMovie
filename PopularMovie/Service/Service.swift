@@ -22,17 +22,12 @@ class Service {
 	
 	func fetchTVSeries(completion: @escaping (TVGroup?, Error?) -> ()) {
 		let urlString = "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SERIES&ratingFrom=7&ratingTo=10&yearFrom=1000&yearTo=3000&page=1"
-		fetchTVGroup(urlString: urlString, completion: completion)
+		fetchGenericJSONData(urlString, completion: completion)
 	}
 	
 	
 	func fetchMiniSeries(completion: @escaping (TVGroup?, Error?) -> ()) {
 		let urlString = "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=MINI_SERIES&ratingFrom=7&ratingTo=10&yearFrom=1000&yearTo=3000&page=1"
-		fetchTVGroup(urlString: urlString, completion: completion)
-	}
-	
-	//MARK: fetch helper
-	func fetchTVGroup(urlString: String, completion: @escaping (TVGroup?, Error?) -> Void) {
 		fetchGenericJSONData(urlString, completion: completion)
 	}
 	

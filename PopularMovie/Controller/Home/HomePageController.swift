@@ -92,7 +92,7 @@ class HomePageController: BaseController {
 	fileprivate func setupSearchBar() {
 		definesPresentationContext = true
 		navigationItem.searchController = self.searchController
-		navigationItem.hidesSearchBarWhenScrolling = false
+		navigationItem.hidesSearchBarWhenScrolling = true
 	}
 	
 	
@@ -126,7 +126,9 @@ class HomePageController: BaseController {
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeGroupCell
 		let tvGroup = tvGroup[indexPath.item]
-		//cell.titleLabel.text = ""
+		
+		
+		
 		cell.horizontalController.tvGroup = tvGroup
 		cell.horizontalController.collectionView.reloadData()
 		return cell
