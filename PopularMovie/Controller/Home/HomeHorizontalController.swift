@@ -14,6 +14,9 @@ class HomeHorizontalController: BaseController {
 	var tvGroup: TVGroup?
 	
 	
+	var didSelectHandler: ((ItemTV)->())?
+	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -44,6 +47,13 @@ class HomeHorizontalController: BaseController {
 		
 		cell.dateLabel.text = String(describing: nonOptionalYear)
 		return cell
+	}
+	
+	
+	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		if let film = tvGroup?.items[indexPath.item] {
+			didSelectHandler?(film)
+		}
 	}
 }
 

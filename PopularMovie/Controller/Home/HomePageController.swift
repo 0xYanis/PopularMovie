@@ -126,11 +126,14 @@ class HomePageController: BaseController {
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeGroupCell
 		let tvGroup = tvGroup[indexPath.item]
-		
-		
-		
 		cell.horizontalController.tvGroup = tvGroup
 		cell.horizontalController.collectionView.reloadData()
+		
+		
+		cell.horizontalController.didSelectHandler = { [weak self] itemTv in
+			let controller = HomeDetailController(filmId: itemTv.kinopoiskId)
+			self?.navigationController?.pushViewController(controller, animated: true)
+		}
 		return cell
 	}
 }

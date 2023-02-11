@@ -13,7 +13,7 @@ struct TVGroup: Decodable {
 
 
 struct ItemTV: Decodable {
-	let kinopoiskId: Int?
+	let kinopoiskId: Int
 	let imdbId: String?
 	let nameRu: String?
 	let nameOriginal: String?
