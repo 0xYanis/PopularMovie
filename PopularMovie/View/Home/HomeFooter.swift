@@ -10,8 +10,15 @@ import UIKit
 class HomeFooter: UICollectionReusableView {
 	
 	
+	let titleLabel = UILabel(text: "Most Expected", font: .boldSystemFont(ofSize: 20), color: .white)
+	
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		
+		
+		addSubview(titleLabel)
+		titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 0))
 	}
 	
 	

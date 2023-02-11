@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct TVShow: Decodable {
-	let items: [ItemTVShow]
+struct TVGroup: Decodable {
+	let items: [ItemTV]
 }
 
 
-struct ItemTVShow: Decodable {
+struct ItemTV: Decodable {
 	let kinopoiskId: Int
 	let imdbId: String?
 	let nameRu: String?
 	let nameOriginal: String
-	let genres: [TVShowGenre]
+	let genres: [TVGenre]
 	let ratingImdb: Double?
 	let year: Int
 	let type: String
@@ -26,6 +26,6 @@ struct ItemTVShow: Decodable {
 }
 
 
-struct TVShowGenre: Codable {
+struct TVGenre: Codable {
 	let genre: String
 }

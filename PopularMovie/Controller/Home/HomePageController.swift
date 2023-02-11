@@ -70,12 +70,11 @@ class HomePageController: BaseController {
 			
 		case UICollectionView.elementKindSectionFooter:
 			let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerId, for: indexPath) as! HomeFooter
-			footer.backgroundColor = .green
 			return footer
 			
 			
 		default:
-				assert(false, "Unexpected element kind")
+			assert(false, "Unexpected element kind")
 		}
 	}
 	
