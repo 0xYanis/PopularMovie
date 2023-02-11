@@ -16,6 +16,7 @@ class HomeDetailController: BaseController {
 	
 	fileprivate var popularMovies: Page?
 	fileprivate var tvGroup: TVGroup?
+	fileprivate var timer: Timer?
 	
 	
 	init(filmId: Int) {
@@ -33,8 +34,31 @@ class HomeDetailController: BaseController {
 		super.viewDidLoad()
 		
 		
+		collectionView.contentInsetAdjustmentBehavior = .never
 		collectionView.backgroundColor = UIColor(named: "background")
 		collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: posterId)
+	}
+	
+	
+	func hideTabbar(_ hidden: Bool) {
+		timer?.invalidate()
+		timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { _ in
+			self.tabBarController?.tabBar.isHidden = hidden
+		})
+	}
+	
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		setTabBarHidden(true)
+		hideTabbar(true)
+	}
+	
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		setTabBarHidden(false)
+		tabBarController?.tabBar.isHidden = false
 	}
 	
 	
@@ -47,5 +71,12 @@ class HomeDetailController: BaseController {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: posterId, for: indexPath)
 		cell.backgroundColor = .red
 		return cell
+	}
+}
+
+
+extension HomeDetailController: UICollectionViewDelegateFlowLayout {
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		return .init(width: view.frame.width, height: 500)
 	}
 }
