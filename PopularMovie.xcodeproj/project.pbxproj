@@ -32,6 +32,7 @@
 		09EB98D92997ADAF00995DD4 /* HomeFooterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB98D82997ADAF00995DD4 /* HomeFooterController.swift */; };
 		09EB98DB2997B8A800995DD4 /* HomeFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB98DA2997B8A800995DD4 /* HomeFooterCell.swift */; };
 		09EB98DD2997E01400995DD4 /* HomeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB98DC2997E01400995DD4 /* HomeDetailController.swift */; };
+		09EB98E0299802A300995DD4 /* HomeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB98DF299802A300995DD4 /* HomeDetailCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		09EB98D82997ADAF00995DD4 /* HomeFooterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFooterController.swift; sourceTree = "<group>"; };
 		09EB98DA2997B8A800995DD4 /* HomeFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFooterCell.swift; sourceTree = "<group>"; };
 		09EB98DC2997E01400995DD4 /* HomeDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailController.swift; sourceTree = "<group>"; };
+		09EB98DF299802A300995DD4 /* HomeDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,13 +188,13 @@
 		09672F942995B10C00931891 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				09EB98DE2997E58C00995DD4 /* Detail */,
 				09672F972995B61F00931891 /* HomeGroupCell.swift */,
 				09672FA22995C0AE00931891 /* HomeRowCell.swift */,
 				09672F952995B13B00931891 /* HomeHeader.swift */,
 				09C4B67E29966D3D00F49402 /* HomeHeaderCell.swift */,
 				09EB98D62997AC2200995DD4 /* HomeFooter.swift */,
 				09EB98DA2997B8A800995DD4 /* HomeFooterCell.swift */,
+				09EB98DE2997E58C00995DD4 /* Detail */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -200,6 +202,7 @@
 		09EB98DE2997E58C00995DD4 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				09EB98DF299802A300995DD4 /* HomeDetailCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				09672F932995AEC600931891 /* BaseTabBarController.swift in Sources */,
 				09C4B67F29966D3D00F49402 /* HomeHeaderCell.swift in Sources */,
 				091F4C062993D38C00274A9B /* AppDelegate.swift in Sources */,
+				09EB98E0299802A300995DD4 /* HomeDetailCell.swift in Sources */,
 				09672F982995B61F00931891 /* HomeGroupCell.swift in Sources */,
 				09672F962995B13B00931891 /* HomeHeader.swift in Sources */,
 				09672FA32995C0AE00931891 /* HomeRowCell.swift in Sources */,

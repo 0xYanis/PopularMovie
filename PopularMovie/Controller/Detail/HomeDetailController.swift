@@ -34,9 +34,10 @@ class HomeDetailController: BaseController {
 		super.viewDidLoad()
 		
 		
+		
 		collectionView.contentInsetAdjustmentBehavior = .never
 		collectionView.backgroundColor = UIColor(named: "background")
-		collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: posterId)
+		collectionView.register(HomeDetailCell.self, forCellWithReuseIdentifier: posterId)
 	}
 	
 	
@@ -68,8 +69,7 @@ class HomeDetailController: BaseController {
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: posterId, for: indexPath)
-		cell.backgroundColor = .red
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: posterId, for: indexPath) as! HomeDetailCell
 		return cell
 	}
 }
