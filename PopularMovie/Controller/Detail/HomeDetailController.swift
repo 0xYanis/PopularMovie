@@ -33,7 +33,7 @@ class HomeDetailController: BaseController {
 		super.viewDidLoad()
 		
 		
-		view.backgroundColor = .red
+		collectionView.backgroundColor = UIColor(named: "background")
 		collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: posterId)
 	}
 	

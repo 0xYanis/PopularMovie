@@ -132,9 +132,12 @@ class HomePageController: BaseController {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeGroupCell
 		let tvGroup = tvGroup[indexPath.item]
 		cell.horizontalController.tvGroup = tvGroup
+		if indexPath.item == 0 {
+			cell.titleLabel.text = "TV Series"
+		} else if indexPath.item == 1 {
+			cell.titleLabel.text = "Mini Series"
+		}
 		cell.horizontalController.collectionView.reloadData()
-		
-		
 		cell.horizontalController.didSelectHandler = { [weak self] itemTv in
 			let controller = HomeDetailController(filmId: itemTv.kinopoiskId)
 			self?.navigationController?.pushViewController(controller, animated: true)
