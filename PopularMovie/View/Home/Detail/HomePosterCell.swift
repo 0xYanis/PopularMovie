@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeDetailCell: UICollectionViewCell {
+class HomePosterCell: UICollectionViewCell {
 	
 	
 	let imageView = UIImageView()
@@ -17,7 +17,7 @@ class HomeDetailCell: UICollectionViewCell {
 		super.init(frame: frame)
 		
 		
-		imageView.backgroundColor = .blue
+		imageView.backgroundColor = .gray
 		addSubview(imageView)
 		imageView.fillSuperview()
 	}

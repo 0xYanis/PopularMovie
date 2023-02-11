@@ -32,7 +32,7 @@ class Service {
 	}
 	
 	
-	private func fetchGenericJSONData<T: Decodable>(_ urlString: String, completion: @escaping (T?, Error?) -> ()) {
+	func fetchGenericJSONData<T: Decodable>(_ urlString: String, completion: @escaping (T?, Error?) -> ()) {
 		guard let url = URL(string: urlString) else { return }
 		var request = URLRequest(url:url)
 		request.httpMethod = "GET"

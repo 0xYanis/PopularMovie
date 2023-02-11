@@ -49,46 +49,6 @@ class HomePageController: BaseController {
 	}
 	
 	
-	fileprivate func fetchData() {
-		var groupOne: TVGroup?
-		var groupTwo: TVGroup?
-		let dispatchGroup = DispatchGroup()
-		
-		
-		dispatchGroup.enter()
-		Service.shared.fetchMovies { movies, error in
-			dispatchGroup.leave()
-			self.popularMovies = movies
-		}
-		
-		
-		dispatchGroup.enter()
-		Service.shared.fetchTVSeries { tvgroup, error in
-			dispatchGroup.leave()
-			groupOne = tvgroup
-		}
-		
-		
-		dispatchGroup.enter()
-		Service.shared.fetchMiniSeries { tvgroup, error in
-			dispatchGroup.leave()
-			groupTwo = tvgroup
-		}
-		
-		
-		dispatchGroup.notify(queue: .main) {
-			self.activityIndecatorView.stopAnimating()
-			if let group = groupOne {
-				self.tvGroup.append(group)
-			}
-			if let group = groupTwo  {
-				self.tvGroup.append(group)
-			}
-			self.collectionView.reloadData()
-		}
-	}
-	
-	
 	fileprivate func setupSearchBar() {
 		definesPresentationContext = true
 		navigationItem.searchController = self.searchController
@@ -97,9 +57,9 @@ class HomePageController: BaseController {
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+		
+		
 		switch kind {
-			
-			
 		case UICollectionView.elementKindSectionHeader:
 			let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! HomeHeader
 			header.headerHorizontalController.popularMovies = popularMovies
@@ -143,6 +103,47 @@ class HomePageController: BaseController {
 			self?.navigationController?.pushViewController(controller, animated: true)
 		}
 		return cell
+	}
+}
+
+extension HomePageController {
+	fileprivate func fetchData() {
+		var groupOne: TVGroup?
+		var groupTwo: TVGroup?
+		let dispatchGroup = DispatchGroup()
+		
+		
+		dispatchGroup.enter()
+		Service.shared.fetchMovies { movies, error in
+			dispatchGroup.leave()
+			self.popularMovies = movies
+		}
+		
+		
+		dispatchGroup.enter()
+		Service.shared.fetchTVSeries { tvgroup, error in
+			dispatchGroup.leave()
+			groupOne = tvgroup
+		}
+		
+		
+		dispatchGroup.enter()
+		Service.shared.fetchMiniSeries { tvgroup, error in
+			dispatchGroup.leave()
+			groupTwo = tvgroup
+		}
+		
+		
+		dispatchGroup.notify(queue: .main) {
+			self.activityIndecatorView.stopAnimating()
+			if let group = groupOne {
+				self.tvGroup.append(group)
+			}
+			if let group = groupTwo  {
+				self.tvGroup.append(group)
+			}
+			self.collectionView.reloadData()
+		}
 	}
 }
 
