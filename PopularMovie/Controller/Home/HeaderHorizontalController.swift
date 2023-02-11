@@ -16,6 +16,9 @@ class HeaderHorizontalController: HorizontalSnappingController {
 	var popularMovies: Page?
 	
 	
+	var didSelectHandler: ((Film)->())?
+	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -40,6 +43,13 @@ class HeaderHorizontalController: HorizontalSnappingController {
 		cell.dateLabel.text = movie?.year ?? "2023"
 		cell.ratingLabel.text = movie?.rating ?? "0.0"
 		return cell
+	}
+	
+	
+	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		if let film = popularMovies?.films[indexPath.item] {
+			didSelectHandler?(film)
+		}
 	}
 }
 

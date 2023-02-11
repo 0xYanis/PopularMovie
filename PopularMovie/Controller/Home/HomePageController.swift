@@ -104,6 +104,11 @@ class HomePageController: BaseController {
 			let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! HomeHeader
 			header.headerHorizontalController.popularMovies = popularMovies
 			header.headerHorizontalController.collectionView.reloadData()
+			
+			header.headerHorizontalController.didSelectHandler = { [weak self] itemMovie in
+				let controller = HomeDetailController(filmId: itemMovie.filmId)
+				self?.navigationController?.pushViewController(controller, animated: true)
+			}
 			return header
 			
 			
