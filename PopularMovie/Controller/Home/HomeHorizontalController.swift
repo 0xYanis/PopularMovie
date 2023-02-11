@@ -44,7 +44,6 @@ class HomeHorizontalController: BaseController {
 		let nonOptionalYear = tvResult?.year ?? 1337
 		cell.imageView.loadImage(urlString: tvResult?.posterUrlPreview ?? "")
 		cell.nameLabel.text = tvResult?.nameRu ?? tvResult?.nameOriginal
-		
 		cell.dateLabel.text = String(describing: nonOptionalYear)
 		return cell
 	}

@@ -21,6 +21,7 @@ class HomePageController: BaseController {
 		aiv.hidesWhenStopped = true
 		return aiv
 	}()
+	fileprivate let refreshControl = UIRefreshControl()
 	
 	
 	var popularMovies: Page?
@@ -46,6 +47,11 @@ class HomePageController: BaseController {
 		
 		setupSearchBar()
 		fetchData()
+		
+		
+		refreshControl.tintColor = .NavBarTextColor
+		refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+		collectionView.refreshControl = refreshControl
 	}
 	
 	
@@ -53,6 +59,16 @@ class HomePageController: BaseController {
 		definesPresentationContext = true
 		navigationItem.searchController = self.searchController
 		navigationItem.hidesSearchBarWhenScrolling = true
+	}
+	
+	
+	@objc func refresh(_ sender: AnyObject) {
+		DispatchQueue.main.async {
+			self.popularMovies = nil
+			self.tvGroup.removeAll()
+			self.fetchData()
+		}
+		refreshControl.endRefreshing()
 	}
 	
 	
