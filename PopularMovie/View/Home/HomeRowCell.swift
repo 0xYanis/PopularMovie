@@ -19,9 +19,6 @@ class HomeRowCell: UICollectionViewCell {
 		super.init(frame: frame)
 		
 		
-		imageView.backgroundColor = .purple
-		
-		
 		let stackView = VerticalStackView(arrangedSubviews: [
 			imageView, nameLabel, dateLabel
 		])

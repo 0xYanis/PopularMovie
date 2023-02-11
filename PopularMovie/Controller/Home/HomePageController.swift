@@ -14,12 +14,17 @@ class HomePageController: BaseController {
 	fileprivate let cellId = "cellId"
 	fileprivate let footerId = "footerId"
 	fileprivate let searchController = UISearchController(searchResultsController: nil)
+	fileprivate let activityIndecatorView: UIActivityIndicatorView = {
+		let aiv = UIActivityIndicatorView(style: .medium)
+		aiv.color = .white
+		aiv.startAnimating()
+		aiv.hidesWhenStopped = true
+		return aiv
+	}()
 	
 	
 	var popularMovies: Page?
-	//	var popularMovies = [Page]()
-	//	var tvShows = [TVShow]()
-	//	var tvSeries = [TVSeries]()
+	var tvGroup = [TVGroup]()
 	
 	
 	override func viewDidLoad() {
@@ -35,17 +40,51 @@ class HomePageController: BaseController {
 		collectionView.register(HomeFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerId)
 		
 		
+		view.addSubview(activityIndecatorView)
+		activityIndecatorView.fillSuperview()
+		
+		
 		setupSearchBar()
 		fetchData()
 	}
 	
 	
 	fileprivate func fetchData() {
-		Service.shared.fetchMovies { popularMovie, err in
-			self.popularMovies = popularMovie
-			DispatchQueue.main.async {
-				self.collectionView.reloadData()
+		var groupOne: TVGroup?
+		var groupTwo: TVGroup?
+		let dispatchGroup = DispatchGroup()
+		
+		
+		dispatchGroup.enter()
+		Service.shared.fetchMovies { movies, error in
+			dispatchGroup.leave()
+			self.popularMovies = movies
+		}
+		
+		
+		dispatchGroup.enter()
+		Service.shared.fetchTVSeries { tvgroup, error in
+			dispatchGroup.leave()
+			groupOne = tvgroup
+		}
+		
+		
+		dispatchGroup.enter()
+		Service.shared.fetchMiniSeries { tvgroup, error in
+			dispatchGroup.leave()
+			groupTwo = tvgroup
+		}
+		
+		
+		dispatchGroup.notify(queue: .main) {
+			self.activityIndecatorView.stopAnimating()
+			if let group = groupOne {
+				self.tvGroup.append(group)
 			}
+			if let group = groupTwo  {
+				self.tvGroup.append(group)
+			}
+			self.collectionView.reloadData()
 		}
 	}
 	
@@ -80,12 +119,16 @@ class HomePageController: BaseController {
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 2
+		return tvGroup.count
 	}
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeGroupCell
+		let tvGroup = tvGroup[indexPath.item]
+		//cell.titleLabel.text = ""
+		cell.horizontalController.tvGroup = tvGroup
+		cell.horizontalController.collectionView.reloadData()
 		return cell
 	}
 }

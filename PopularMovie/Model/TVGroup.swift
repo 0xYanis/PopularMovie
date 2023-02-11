@@ -13,19 +13,19 @@ struct TVGroup: Decodable {
 
 
 struct ItemTV: Decodable {
-	let kinopoiskId: Int
+	let kinopoiskId: Int?
 	let imdbId: String?
 	let nameRu: String?
-	let nameOriginal: String
-	let genres: [TVGenre]
+	let nameOriginal: String?
+	var genres: [TVGenre]
 	let ratingImdb: Double?
-	let year: Int
-	let type: String
-	let posterUrl: String
-	let posterUrlPreview: String
+	let year: Int?
+	let type: String?
+	let posterUrl: String?
+	let posterUrlPreview: String?
 }
 
 
 struct TVGenre: Codable {
-	let genre: String
+	let genre: String?
 }

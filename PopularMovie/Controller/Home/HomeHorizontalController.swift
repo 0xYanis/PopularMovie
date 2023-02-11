@@ -11,6 +11,7 @@ class HomeHorizontalController: BaseController {
 	
 	
 	fileprivate let cellId = "cellId"
+	var tvGroup: TVGroup?
 	
 	
 	override func viewDidLoad() {
@@ -30,12 +31,18 @@ class HomeHorizontalController: BaseController {
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 10
+		return tvGroup?.items.count ?? 0
 	}
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeRowCell
+		let tvResult = tvGroup?.items[indexPath.item]
+		let nonOptionalYear = tvResult?.year ?? 1337
+		cell.imageView.loadImage(urlString: tvResult?.posterUrlPreview ?? "")
+		cell.nameLabel.text = tvResult?.nameRu ?? tvResult?.nameOriginal
+		
+		cell.dateLabel.text = String(describing: nonOptionalYear)
 		return cell
 	}
 }

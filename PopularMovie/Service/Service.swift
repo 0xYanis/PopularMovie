@@ -20,17 +20,22 @@ class Service {
 	}
 	
 	
-	func fetchTVShows(completion: @escaping (TVGroup?, Error?) -> ()) {
-		let urlString = "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SHOW&ratingFrom=5&ratingTo=10&yearFrom=1000&yearTo=3000&page=1"
-		fetchGenericJSONData(urlString, completion: completion)
-	}
-	
-	
 	func fetchTVSeries(completion: @escaping (TVGroup?, Error?) -> ()) {
-		let urlString = "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SERIES&ratingFrom=5&ratingTo=10&yearFrom=1000&yearTo=3000&page=1"
+		let urlString = "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SERIES&ratingFrom=7&ratingTo=10&yearFrom=1000&yearTo=3000&page=1"
+		fetchTVGroup(urlString: urlString, completion: completion)
+	}
+	
+	
+	func fetchMiniSeries(completion: @escaping (TVGroup?, Error?) -> ()) {
+		let urlString = "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=MINI_SERIES&ratingFrom=7&ratingTo=10&yearFrom=1000&yearTo=3000&page=1"
+		fetchTVGroup(urlString: urlString, completion: completion)
+	}
+	
+	//MARK: fetch helper
+	func fetchTVGroup(urlString: String, completion: @escaping (TVGroup?, Error?) -> Void) {
 		fetchGenericJSONData(urlString, completion: completion)
 	}
-
+	
 	
 	private func fetchGenericJSONData<T: Decodable>(_ urlString: String, completion: @escaping (T?, Error?) -> ()) {
 		guard let url = URL(string: urlString) else { return }
@@ -40,7 +45,7 @@ class Service {
 		request.setValue("0f8b1961-213e-4781-b4ad-0d70764fa882", forHTTPHeaderField: "X-API-KEY")
 		
 		
-		let task = URLSession.shared.dataTask(with: request) { (data, resp, err) in
+		URLSession.shared.dataTask(with: request) { (data, resp, err) in
 			if let err = err {
 				completion(nil, err)
 				return
@@ -52,8 +57,8 @@ class Service {
 				completion(objects, nil)
 			} catch {
 				completion(nil, error)
+				print(error)
 			}
-		}
-		task.resume()
+		}.resume()
 	}
 }
