@@ -38,6 +38,7 @@ class HeaderHorizontalController: HorizontalSnappingController {
 		cell.imageView.loadImage(urlString: movie?.posterUrl ?? "")
 		cell.nameLabel.text = movie?.nameEn ?? movie?.nameRu
 		cell.dateLabel.text = movie?.year ?? "2023"
+		cell.ratingLabel.text = movie?.rating ?? "0.0"
 		return cell
 	}
 }

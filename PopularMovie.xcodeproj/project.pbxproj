@@ -29,6 +29,8 @@
 		09C4B67B2996672F00F49402 /* HeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67A2996672F00F49402 /* HeaderHorizontalController.swift */; };
 		09C4B67D2996677800F49402 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67C2996677800F49402 /* HorizontalSnappingController.swift */; };
 		09C4B67F29966D3D00F49402 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67E29966D3D00F49402 /* HomeHeaderCell.swift */; };
+		09EB98D72997AC2200995DD4 /* HomeFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB98D62997AC2200995DD4 /* HomeFooter.swift */; };
+		09EB98D92997ADAF00995DD4 /* HomeFooterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB98D82997ADAF00995DD4 /* HomeFooterController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		09C4B67A2996672F00F49402 /* HeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderHorizontalController.swift; sourceTree = "<group>"; };
 		09C4B67C2996677800F49402 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		09C4B67E29966D3D00F49402 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
+		09EB98D62997AC2200995DD4 /* HomeFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFooter.swift; sourceTree = "<group>"; };
+		09EB98D82997ADAF00995DD4 /* HomeFooterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFooterController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 				091F4C1F2993D60200274A9B /* HomePageController.swift */,
 				09C4B67A2996672F00F49402 /* HeaderHorizontalController.swift */,
 				09672F9C2995B92500931891 /* HomeHorizontalController.swift */,
+				09EB98D82997ADAF00995DD4 /* HomeFooterController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 				09672FA22995C0AE00931891 /* HomeRowCell.swift */,
 				09672F952995B13B00931891 /* HomeHeader.swift */,
 				09C4B67E29966D3D00F49402 /* HomeHeaderCell.swift */,
+				09EB98D62997AC2200995DD4 /* HomeFooter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -258,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09A39FF42996F9D700AD821F /* TVShow.swift in Sources */,
+				09EB98D92997ADAF00995DD4 /* HomeFooterController.swift in Sources */,
 				09C4B67D2996677800F49402 /* HorizontalSnappingController.swift in Sources */,
 				09A39FF62996FC9A00AD821F /* TVSeries.swift in Sources */,
 				09672F9D2995B92500931891 /* HomeHorizontalController.swift in Sources */,
@@ -277,6 +284,7 @@
 				091F4C202993D60200274A9B /* HomePageController.swift in Sources */,
 				09672FA52995C36E00931891 /* VerticalStackView.swift in Sources */,
 				09C4B67729965D6C00F49402 /* PopularMovie.swift in Sources */,
+				09EB98D72997AC2200995DD4 /* HomeFooter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

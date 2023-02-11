@@ -22,7 +22,6 @@ class HomeGroupCell: UICollectionViewCell {
 		
 		
 		addSubview(horizontalController.view)
-		horizontalController.view.backgroundColor = .red
 		horizontalController.view.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
 	}
 	

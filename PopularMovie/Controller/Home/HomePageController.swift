@@ -12,8 +12,15 @@ class HomePageController: BaseController {
 	
 	fileprivate let headerId = "headerId"
 	fileprivate let cellId = "cellId"
+	fileprivate let footerId = "footerId"
+	fileprivate let searchController = UISearchController(searchResultsController: nil)
+	
 	
 	var popularMovies: Page?
+	//	var popularMovies = [Page]()
+	//	var tvShows = [TVShow]()
+	//	var tvSeries = [TVSeries]()
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -25,8 +32,10 @@ class HomePageController: BaseController {
 		
 		collectionView.register(HomeHeader.self,forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
 		collectionView.register(HomeGroupCell.self, forCellWithReuseIdentifier: cellId)
+		collectionView.register(HomeFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerId)
 		
 		
+		setupSearchBar()
 		fetchData()
 	}
 	
@@ -41,16 +50,33 @@ class HomePageController: BaseController {
 	}
 	
 	
-	override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-		let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! HomeHeader
-		header.headerHorizontalController.popularMovies = popularMovies
-		header.headerHorizontalController.collectionView.reloadData()
-		return header
+	fileprivate func setupSearchBar() {
+		definesPresentationContext = true
+		navigationItem.searchController = self.searchController
+		navigationItem.hidesSearchBarWhenScrolling = false
 	}
 	
 	
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-		return .init(width: view.frame.width, height: 300)
+	override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+		switch kind {
+			
+			
+		case UICollectionView.elementKindSectionHeader:
+			let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! HomeHeader
+			header.headerHorizontalController.popularMovies = popularMovies
+			header.headerHorizontalController.collectionView.reloadData()
+			return header
+			
+			
+		case UICollectionView.elementKindSectionFooter:
+			let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerId, for: indexPath) as! HomeFooter
+			footer.backgroundColor = .green
+			return footer
+			
+			
+		default:
+				assert(false, "Unexpected element kind")
+		}
 	}
 	
 	
@@ -67,6 +93,11 @@ class HomePageController: BaseController {
 
 // MARK: - DelegateFlowLayout protocol
 extension HomePageController: UICollectionViewDelegateFlowLayout {
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+		return .init(width: view.frame.width, height: 300)
+	}
+	
+	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		return .init(width: view.frame.width, height: 240)
 	}
@@ -74,5 +105,10 @@ extension HomePageController: UICollectionViewDelegateFlowLayout {
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 		return .init(top: 20, left: 0, bottom: 0, right: 0)
+	}
+	
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+		return .init(width: view.frame.width, height: 300)
 	}
 }

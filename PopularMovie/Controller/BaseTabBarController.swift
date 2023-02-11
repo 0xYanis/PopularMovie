@@ -40,8 +40,6 @@ class BaseTabBarController: UITabBarController {
 	private func createNavController(_ viewController: UIViewController, title: String,tabbarTitle: String, imageName: String) -> UIViewController {
 		let navController = UINavigationController(rootViewController: viewController)
 		setCustomNavBar()
-		
-		
 		navController.navigationBar.prefersLargeTitles = true
 		navController.navigationBar.barStyle = .black
 		viewController.navigationItem.title = title
@@ -67,6 +65,7 @@ class BaseTabBarController: UITabBarController {
 							   ),
 			cornerRadius: height / 2)
 		roundLayer.path = bezierPath.cgPath
+		
 		
 		tabBar.layer.insertSublayer(roundLayer, at: 0)
 		tabBar.itemWidth = width / 7
