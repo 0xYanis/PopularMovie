@@ -41,12 +41,12 @@ class HomePageController: BaseController {
 		collectionView.register(HomeFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerId)
 		
 		
-		view.addSubview(activityIndecatorView)
-		activityIndecatorView.fillSuperview()
+		//view.addSubview(activityIndecatorView)
+		//activityIndecatorView.fillSuperview()
 		
 		
 		setupSearchBar()
-		fetchData()
+		//fetchData()
 		
 		
 		refreshControl.tintColor = .NavBarTextColor
@@ -62,12 +62,10 @@ class HomePageController: BaseController {
 	}
 	
 	
-	@objc func refresh(_ sender: AnyObject) {
-		DispatchQueue.main.async {
-			self.popularMovies = nil
-			self.tvGroup.removeAll()
-			self.fetchData()
-		}
+	@objc fileprivate func refresh(_ sender: AnyObject) {
+		self.popularMovies = nil
+		self.tvGroup.removeAll()
+		self.fetchData()
 		refreshControl.endRefreshing()
 	}
 	
@@ -181,6 +179,6 @@ extension HomePageController: UICollectionViewDelegateFlowLayout {
 	
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-		return .init(width: view.frame.width, height: 300)
+		return .init(width: view.frame.width, height: 250)
 	}
 }

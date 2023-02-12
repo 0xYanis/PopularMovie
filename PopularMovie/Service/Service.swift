@@ -52,7 +52,6 @@ class Service {
 				completion(objects, nil)
 			} catch {
 				completion(nil, error)
-				print(error)
 			}
 		}.resume()
 	}

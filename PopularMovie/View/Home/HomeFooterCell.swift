@@ -10,8 +10,16 @@ import UIKit
 class HomeFooterCell: UICollectionViewCell {
 	
 	
+	let imageView = UIImageView(cornerRadius: 15)
+	
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		
+		
+		imageView.backgroundColor = .red
+		addSubview(imageView)
+		imageView.fillSuperview()
 	}
 	
 	
