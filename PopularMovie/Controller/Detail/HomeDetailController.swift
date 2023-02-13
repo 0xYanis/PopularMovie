@@ -36,8 +36,8 @@ class HomeDetailController: BaseController {
 		super.viewDidLoad()
 		
 		
-		collectionView.contentInsetAdjustmentBehavior = .never
 		collectionView.backgroundColor = UIColor(named: "background")
+		collectionView.contentInsetAdjustmentBehavior = .never
 		collectionView.register(HomePosterCell.self, forCellWithReuseIdentifier: posterId)
 		collectionView.register(HomeLabelCell.self, forCellWithReuseIdentifier: labelId)
 		collectionView.register(HomeCastCell.self, forCellWithReuseIdentifier: castId)
@@ -112,6 +112,7 @@ extension HomeDetailController: UICollectionViewDelegateFlowLayout {
 			return .init(width: view.frame.width, height: 200)
 		}
 	}
+	
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 		return .init(top: 0, left: 0, bottom: 15, right: 0)

@@ -38,7 +38,7 @@ class FooterHorizontalController: HorizontalSnappingController {
 //MARK: - DelegateFlowLayout protocol
 extension FooterHorizontalController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return .init(width: view.frame.width - 48, height: view.frame.height)
+		return .init(width: view.frame.width - 48, height: view.frame.height - 25)
 	}
 	
 	

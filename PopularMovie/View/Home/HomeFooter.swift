@@ -23,7 +23,7 @@ class HomeFooter: UICollectionReusableView {
 		
 		
 		addSubview(footerHorizontalController.view)
-		footerHorizontalController.view.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 15, left: 0, bottom: 25, right: 0))
+		footerHorizontalController.view.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 25, right: 0))
 	}
 	
 	

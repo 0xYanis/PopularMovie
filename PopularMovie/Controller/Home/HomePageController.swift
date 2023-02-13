@@ -14,14 +14,14 @@ class HomePageController: BaseController {
 	fileprivate let cellId = "cellId"
 	fileprivate let footerId = "footerId"
 	fileprivate let searchController = UISearchController(searchResultsController: nil)
+	fileprivate let refreshControl = UIRefreshControl()
 	fileprivate let activityIndecatorView: UIActivityIndicatorView = {
 		let aiv = UIActivityIndicatorView(style: .medium)
-		aiv.color = .white
+		aiv.color = .NavBarTextColor
 		aiv.startAnimating()
 		aiv.hidesWhenStopped = true
 		return aiv
 	}()
-	fileprivate let refreshControl = UIRefreshControl()
 	
 	
 	var popularMovies: Page?
@@ -41,16 +41,16 @@ class HomePageController: BaseController {
 		collectionView.register(HomeFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerId)
 		
 		
-		//view.addSubview(activityIndecatorView)
-		//activityIndecatorView.fillSuperview()
+		view.addSubview(activityIndecatorView)
+		activityIndecatorView.fillSuperview()
 		
 		
 		setupSearchBar()
-		//fetchData()
+		fetchData()
 		
 		
 		refreshControl.tintColor = .NavBarTextColor
-		refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+		refreshControl.addTarget(self, action: #selector(self.refreshAction(_:)), for: .valueChanged)
 		collectionView.refreshControl = refreshControl
 	}
 	
@@ -62,7 +62,7 @@ class HomePageController: BaseController {
 	}
 	
 	
-	@objc fileprivate func refresh(_ sender: AnyObject) {
+	@objc fileprivate func refreshAction(_ sender: AnyObject) {
 		self.popularMovies = nil
 		self.tvGroup.removeAll()
 		self.fetchData()
@@ -179,6 +179,6 @@ extension HomePageController: UICollectionViewDelegateFlowLayout {
 	
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-		return .init(width: view.frame.width, height: 250)
+		return .init(width: view.frame.width, height: 300)
 	}
 }
