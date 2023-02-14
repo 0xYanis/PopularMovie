@@ -14,6 +14,7 @@
 		091F4C202993D60200274A9B /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091F4C1F2993D60200274A9B /* HomePageController.swift */; };
 		091F4C222993D6C600274A9B /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091F4C212993D6C600274A9B /* BaseController.swift */; };
 		091F4C242993D8B700274A9B /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091F4C232993D8B700274A9B /* UIView+Layout.swift */; };
+		0921ED49299AC7D80066B596 /* MostExpected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0921ED48299AC7D80066B596 /* MostExpected.swift */; };
 		09672F932995AEC600931891 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672F922995AEC600931891 /* BaseTabBarController.swift */; };
 		09672F962995B13B00931891 /* HomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672F952995B13B00931891 /* HomeHeader.swift */; };
 		09672F982995B61F00931891 /* HomeGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672F972995B61F00931891 /* HomeGroupCell.swift */; };
@@ -48,6 +49,7 @@
 		091F4C1F2993D60200274A9B /* HomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
 		091F4C212993D6C600274A9B /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		091F4C232993D8B700274A9B /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		0921ED48299AC7D80066B596 /* MostExpected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostExpected.swift; sourceTree = "<group>"; };
 		09672F922995AEC600931891 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		09672F952995B13B00931891 /* HomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeader.swift; sourceTree = "<group>"; };
 		09672F972995B61F00931891 /* HomeGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGroupCell.swift; sourceTree = "<group>"; };
@@ -102,26 +104,25 @@
 		091F4C042993D38C00274A9B /* PopularMovie */ = {
 			isa = PBXGroup;
 			children = (
+				09F1B80E299B037300D3D911 /* Application */,
 				091F4C1B2993D49C00274A9B /* Model */,
 				091F4C1D2993D4AD00274A9B /* View */,
 				091F4C1A2993D48F00274A9B /* Controller */,
 				091F4C1C2993D4A500274A9B /* Service */,
 				091F4C1E2993D4C100274A9B /* Helpers */,
-				091F4C192993D3CC00274A9B /* System */,
+				091F4C192993D3CC00274A9B /* Resources */,
 			);
 			path = PopularMovie;
 			sourceTree = "<group>";
 		};
-		091F4C192993D3CC00274A9B /* System */ = {
+		091F4C192993D3CC00274A9B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				091F4C052993D38C00274A9B /* AppDelegate.swift */,
-				091F4C072993D38C00274A9B /* SceneDelegate.swift */,
 				091F4C0E2993D39200274A9B /* Assets.xcassets */,
 				091F4C102993D39200274A9B /* LaunchScreen.storyboard */,
 				091F4C132993D39200274A9B /* Info.plist */,
 			);
-			path = System;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		091F4C1A2993D48F00274A9B /* Controller */ = {
@@ -142,6 +143,7 @@
 				09C4B67629965D6C00F49402 /* Page.swift */,
 				09A39FF32996F9D700AD821F /* TVGroup.swift */,
 				09EB98E52998243500995DD4 /* Detail.swift */,
+				0921ED48299AC7D80066B596 /* MostExpected.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +218,15 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		09F1B80E299B037300D3D911 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				091F4C052993D38C00274A9B /* AppDelegate.swift */,
+				091F4C072993D38C00274A9B /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -288,6 +299,7 @@
 			files = (
 				09A39FF42996F9D700AD821F /* TVGroup.swift in Sources */,
 				09EB98E229980A6F00995DD4 /* HomeLabelCell.swift in Sources */,
+				0921ED49299AC7D80066B596 /* MostExpected.swift in Sources */,
 				09EB98E62998243500995DD4 /* Detail.swift in Sources */,
 				09EB98D92997ADAF00995DD4 /* FooterHorizontalController.swift in Sources */,
 				09C4B67D2996677800F49402 /* HorizontalSnappingController.swift in Sources */,
@@ -454,7 +466,7 @@
 				DEVELOPMENT_TEAM = 2B85PH5M9P;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_FLATTEN_NIBS = NO;
-				INFOPLIST_FILE = PopularMovie/System/Info.plist;
+				INFOPLIST_FILE = PopularMovie/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -485,7 +497,7 @@
 				DEVELOPMENT_TEAM = 2B85PH5M9P;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_FLATTEN_NIBS = NO;
-				INFOPLIST_FILE = PopularMovie/System/Info.plist;
+				INFOPLIST_FILE = PopularMovie/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

@@ -18,7 +18,7 @@ struct Film: Decodable {
 	let nameEn: String?
 	let year: String
 	let filmLength: String
-	let rating: String
+	let rating: String?
 	let ratingVoteCount: Int
 	let posterUrl: String
 	let posterUrlPreview: String
