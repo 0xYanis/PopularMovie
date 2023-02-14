@@ -14,7 +14,7 @@ class HomeFooterCell: UICollectionViewCell {
 	let nameLabel = UILabel(text: "Name of Movie", font: .boldSystemFont(ofSize: 17), color: .white)
 	let dateLabel = UILabel(text: "Date: Aug. 22, 2020", font: .systemFont(ofSize: 16), color: .white)
 	let ratingLabel = UILabel(text: "Rating: 9.1", font: .systemFont(ofSize: 16), color: .white)
-	let descriptionLabel = UILabel(text: "Сюжет фильма рассказывает нам историю девушки по имени Роуз Коттер (Сози Бэйкон), которая работает в отделении психиатрической клиники. Однажды к Роуз поступает ...", font: .systemFont(ofSize: 11), numberOfLines: 5, color: .white)
+	let descriptionLabel = UILabel(text: "Сюжет фильма рассказывает нам историю девушки по имени Роуз Коттер..", font: .systemFont(ofSize: 11), numberOfLines: 5, color: .white)
 	
 	
 	override init(frame: CGRect) {
@@ -47,6 +47,6 @@ class HomeFooterCell: UICollectionViewCell {
 		imageView.image = UIImage(named: "poster")
 		imageView.clipsToBounds = true
 		imageView.contentMode = .scaleAspectFill
-		imageView.constrainWidth(constant: 100)
+		imageView.constrainWidth(constant: 120)
 	}
 }
