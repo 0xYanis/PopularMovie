@@ -10,7 +10,19 @@ import UIKit
 class HomeLabelCell: UICollectionViewCell {
 	
 	
-	let titleLabel = UILabel(text: "Harry Potter", font: .boldSystemFont(ofSize: 40), numberOfLines: 2, color: .white)
+	var movie: DetailMovie? {
+		didSet {
+			let year = movie?.year ?? 0
+			let genre = movie?.genres.first ?? Genre(genre: "none")
+			titleLabel.text = movie?.nameOriginal ?? movie?.nameRu
+			yearLabel.text = "\(year)"
+			genreLabel.text = genre.genre
+			lengthLabel.text = movie?.imdbId
+		}
+	}
+	
+	
+	let titleLabel = UILabel(text: "Harry Potter", font: .boldSystemFont(ofSize: 32), numberOfLines: 2, color: .white)
 	let yearLabel = UILabel(text: "2002", font: .systemFont(ofSize: 14), color: .gray)
 	let genreLabel = UILabel(text: "Action", font: .systemFont(ofSize: 14), color: .gray)
 	let lengthLabel = UILabel(text: "2h 55m", font: .systemFont(ofSize: 14), color: .gray)
@@ -29,7 +41,7 @@ class HomeLabelCell: UICollectionViewCell {
 		
 		
 		addSubview(verticalStack)
-		verticalStack.centerInSuperview()
+		verticalStack.fillSuperview()
 	}
 	
 	

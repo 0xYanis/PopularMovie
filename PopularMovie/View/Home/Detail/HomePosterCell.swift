@@ -10,6 +10,13 @@ import UIKit
 class HomePosterCell: UICollectionViewCell {
 	
 	
+	var movie: DetailMovie! {
+		didSet {
+			imageView.loadImage(urlString: movie?.posterUrl ?? "")
+		}
+	}
+	
+	
 	let imageView = UIImageView()
 	
 	
@@ -17,7 +24,7 @@ class HomePosterCell: UICollectionViewCell {
 		super.init(frame: frame)
 		
 		
-		imageView.backgroundColor = .gray
+		imageView.contentMode = .scaleAspectFill
 		addSubview(imageView)
 		imageView.fillSuperview()
 	}

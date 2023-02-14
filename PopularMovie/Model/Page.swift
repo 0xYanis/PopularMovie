@@ -14,12 +14,12 @@ struct Page: Decodable {
 
 struct Film: Decodable {
 	let filmId: Int
-	let nameRu: String
+	let nameRu: String?
 	let nameEn: String?
-	let year: String
-	let filmLength: String
+	let year: String?
+	let filmLength: String?
 	let rating: String?
-	let ratingVoteCount: Int
-	let posterUrl: String
-	let posterUrlPreview: String
+	let ratingVoteCount: Int?
+	let posterUrl: String?
+	let posterUrlPreview: String?
 }

@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct Detail: Decodable {
-	let total, totalPages: Int
-	let items: [DetailMovie]
-}
-
 struct DetailMovie: Decodable {
 	let kinopoiskId: Int
 	let imdbId, nameRu: String?

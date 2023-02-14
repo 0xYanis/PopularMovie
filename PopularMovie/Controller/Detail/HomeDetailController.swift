@@ -16,7 +16,7 @@ class HomeDetailController: BaseController {
 	fileprivate let castId = "castId"
 	
 	
-	fileprivate var popularMovies: Film?
+	fileprivate var popularMovies: DetailMovie?
 	fileprivate var tvGroup: TVGroup?
 	fileprivate var timer: Timer?
 	
@@ -71,8 +71,8 @@ class HomeDetailController: BaseController {
 	
 	fileprivate func fetchData() {
 		let urlString = "https://kinopoiskapiunofficial.tech/api/v2.2/films/\(self.filmId)"
-		Service.shared.fetchGenericJSONData(urlString) { (result: Page?, err) in
-			let movie = result?.films.first
+		Service.shared.fetchGenericJSONData(urlString) { (result: DetailMovie?, err) in
+			let movie = result
 			self.popularMovies = movie
 			DispatchQueue.main.async {
 				self.collectionView.reloadData()
@@ -89,10 +89,11 @@ class HomeDetailController: BaseController {
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		if indexPath.item == 0 {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: posterId, for: indexPath) as! HomePosterCell
-			cell.imageView.loadImage(urlString: self.popularMovies?.posterUrl ?? "")
+			cell.movie = popularMovies
 			return cell
 		} else if indexPath.item == 1 {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: labelId, for: indexPath) as! HomeLabelCell
+			cell.movie = popularMovies
 			return cell
 		} else {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: castId, for: indexPath) as! HomeCastCell
@@ -105,7 +106,7 @@ class HomeDetailController: BaseController {
 extension HomeDetailController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		if indexPath.item == 0 {
-			return .init(width: view.frame.width, height: 500)
+			return .init(width: view.frame.width, height: 600)
 		} else if indexPath.item == 1 {
 			return .init(width: view.frame.width, height: 100)
 		} else {

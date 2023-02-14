@@ -38,7 +38,7 @@ class HeaderHorizontalController: HorizontalSnappingController {
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeHeaderCell
 		let movie = popularMovies?.films[indexPath.item]
-		cell.imageView.loadImage(urlString: movie?.posterUrl ?? "")
+		cell.imageView.loadImage(urlString: movie?.posterUrlPreview ?? "")
 		cell.nameLabel.text = movie?.nameEn ?? movie?.nameRu
 		cell.dateLabel.text = movie?.year ?? "2023"
 		cell.ratingLabel.text = movie?.rating ?? "0.0"
