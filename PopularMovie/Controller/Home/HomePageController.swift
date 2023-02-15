@@ -160,7 +160,6 @@ extension HomePageController {
 		Service.shared.fetchMostExpected { mostMovies, error in
 			dispatchGroup.leave()
 			self.mostExpected = mostMovies
-			print(mostMovies)
 		}
 		
 		

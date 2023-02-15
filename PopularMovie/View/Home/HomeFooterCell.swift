@@ -14,7 +14,7 @@ class HomeFooterCell: UICollectionViewCell {
 	let nameLabel = UILabel(text: "Name of Movie", font: .boldSystemFont(ofSize: 17), color: .white)
 	let dateLabel = UILabel(text: "Date: Aug. 22, 2020", font: .systemFont(ofSize: 16), color: .white)
 	let ratingLabel = UILabel(text: "Rating: 9.1", font: .systemFont(ofSize: 16), color: .white)
-	let descriptionLabel = UILabel(text: "Сюжет фильма рассказывает нам историю девушки по имени Роуз Коттер..", font: .systemFont(ofSize: 11), numberOfLines: 5, color: .white)
+	let descriptionLabel = UILabel(text: "Сюжет", font: .systemFont(ofSize: 16), color: .white)
 	
 	
 	override init(frame: CGRect) {
@@ -25,9 +25,13 @@ class HomeFooterCell: UICollectionViewCell {
 		layer.cornerRadius = 10
 		
 		setupImageView()
+		
+		
 		let verticalStack = VerticalStackView(arrangedSubviews: [
 		nameLabel, dateLabel, ratingLabel, descriptionLabel, UIView()
 		], spacing: 8)
+		
+		
 		let horizontalStack = UIStackView(arrangedSubviews: [
 		imageView, verticalStack, UIView()
 		], customSpacing: 8)
@@ -44,7 +48,6 @@ class HomeFooterCell: UICollectionViewCell {
 	
 	
 	fileprivate func setupImageView() {
-		imageView.image = UIImage(named: "poster")
 		imageView.clipsToBounds = true
 		imageView.contentMode = .scaleAspectFill
 		imageView.constrainWidth(constant: 120)

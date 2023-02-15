@@ -43,12 +43,8 @@ class HomeLabelCell: UICollectionViewCell {
 		super.init(frame: frame)
 		
 		
-		let genreHorizontalStack = UIStackView(arrangedSubviews: [
-			genreLabel
-		])
-		
 		let verticalStack = VerticalStackView(arrangedSubviews: [
-			titleLabel, ratingLabel, yearLabel, genreHorizontalStack, countryLabel, filmLength, descriptionLabel, UIView()
+			titleLabel, ratingLabel, yearLabel, genreLabel, countryLabel, filmLength, descriptionLabel, UIView()
 		], spacing: 15)
 		
 		
