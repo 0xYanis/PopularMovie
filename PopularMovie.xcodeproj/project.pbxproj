@@ -35,7 +35,6 @@
 		09EB98DD2997E01400995DD4 /* HomeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB98DC2997E01400995DD4 /* HomeDetailController.swift */; };
 		09EB98E0299802A300995DD4 /* HomePosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB98DF299802A300995DD4 /* HomePosterCell.swift */; };
 		09EB98E229980A6F00995DD4 /* HomeLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB98E129980A6F00995DD4 /* HomeLabelCell.swift */; };
-		09EB98E429980B8600995DD4 /* HomeCastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB98E329980B8600995DD4 /* HomeCastCell.swift */; };
 		09EB98E62998243500995DD4 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB98E52998243500995DD4 /* Detail.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +69,6 @@
 		09EB98DC2997E01400995DD4 /* HomeDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailController.swift; sourceTree = "<group>"; };
 		09EB98DF299802A300995DD4 /* HomePosterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePosterCell.swift; sourceTree = "<group>"; };
 		09EB98E129980A6F00995DD4 /* HomeLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLabelCell.swift; sourceTree = "<group>"; };
-		09EB98E329980B8600995DD4 /* HomeCastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCastCell.swift; sourceTree = "<group>"; };
 		09EB98E52998243500995DD4 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,7 +211,6 @@
 			children = (
 				09EB98DF299802A300995DD4 /* HomePosterCell.swift */,
 				09EB98E129980A6F00995DD4 /* HomeLabelCell.swift */,
-				09EB98E329980B8600995DD4 /* HomeCastCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -324,7 +321,6 @@
 				09C4B67729965D6C00F49402 /* Page.swift in Sources */,
 				09EB98D72997AC2200995DD4 /* HomeFooter.swift in Sources */,
 				09EB98DB2997B8A800995DD4 /* HomeFooterCell.swift in Sources */,
-				09EB98E429980B8600995DD4 /* HomeCastCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

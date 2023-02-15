@@ -17,6 +17,7 @@ class HomePosterCell: UICollectionViewCell {
 	}
 	
 	
+	
 	let imageView = UIImageView()
 	
 	
@@ -24,9 +25,10 @@ class HomePosterCell: UICollectionViewCell {
 		super.init(frame: frame)
 		
 		
-		imageView.contentMode = .scaleAspectFill
+		imageView.contentMode = .scaleAspectFit
+		imageView.layer.cornerRadius = 15
 		addSubview(imageView)
-		imageView.fillSuperview()
+		imageView.fillSuperview(padding: .init(top: 120, left: 50, bottom: 0, right: 50))
 	}
 	
 	

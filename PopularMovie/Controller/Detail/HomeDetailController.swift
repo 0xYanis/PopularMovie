@@ -36,11 +36,11 @@ class HomeDetailController: BaseController {
 		super.viewDidLoad()
 		
 		
-		collectionView.backgroundColor = UIColor(named: "background")
 		collectionView.contentInsetAdjustmentBehavior = .never
+		collectionView.backgroundColor = UIColor(named: "background")
 		collectionView.register(HomePosterCell.self, forCellWithReuseIdentifier: posterId)
 		collectionView.register(HomeLabelCell.self, forCellWithReuseIdentifier: labelId)
-		collectionView.register(HomeCastCell.self, forCellWithReuseIdentifier: castId)
+		
 		
 		
 		fetchData()
@@ -82,7 +82,7 @@ class HomeDetailController: BaseController {
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 3
+		return 2
 	}
 	
 	
@@ -91,12 +91,9 @@ class HomeDetailController: BaseController {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: posterId, for: indexPath) as! HomePosterCell
 			cell.movie = popularMovies
 			return cell
-		} else if indexPath.item == 1 {
+		} else {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: labelId, for: indexPath) as! HomeLabelCell
 			cell.movie = popularMovies
-			return cell
-		} else {
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: castId, for: indexPath) as! HomeCastCell
 			return cell
 		}
 	}
@@ -106,16 +103,14 @@ class HomeDetailController: BaseController {
 extension HomeDetailController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		if indexPath.item == 0 {
-			return .init(width: view.frame.width, height: 600)
-		} else if indexPath.item == 1 {
-			return .init(width: view.frame.width, height: 100)
+			return .init(width: view.frame.width, height: 370)
 		} else {
-			return .init(width: view.frame.width, height: 200)
+			return .init(width: view.frame.width, height: 250)
 		}
 	}
 	
 	
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-		return .init(top: 0, left: 0, bottom: 15, right: 0)
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+		return .zero
 	}
 }

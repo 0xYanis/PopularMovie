@@ -22,7 +22,7 @@ class HomeLabelCell: UICollectionViewCell {
 	}
 	
 	
-	let titleLabel = UILabel(text: "Harry Potter", font: .boldSystemFont(ofSize: 32), numberOfLines: 2, color: .white)
+	let titleLabel = UILabel(text: "Harry Potter", font: .boldSystemFont(ofSize: 28), numberOfLines: 2, color: .white)
 	let yearLabel = UILabel(text: "2002", font: .systemFont(ofSize: 14), color: .gray)
 	let genreLabel = UILabel(text: "Action", font: .systemFont(ofSize: 14), color: .gray)
 	let lengthLabel = UILabel(text: "2h 55m", font: .systemFont(ofSize: 14), color: .gray)
@@ -35,13 +35,17 @@ class HomeLabelCell: UICollectionViewCell {
 		let horizontalStack = UIStackView(arrangedSubviews: [
 		yearLabel, genreLabel, lengthLabel
 		], customSpacing: 10)
+		
+		
 		let verticalStack = VerticalStackView(arrangedSubviews: [
 		titleLabel, horizontalStack, UIView()
 		], spacing: 15)
 		
 		
 		addSubview(verticalStack)
-		verticalStack.fillSuperview()
+		verticalStack.fillSuperview(padding: .init(top: 0, left: 20, bottom: 0, right: 20))
+		verticalStack.centerYInSuperview()
+		backgroundColor = .black
 	}
 	
 	
