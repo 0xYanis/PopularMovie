@@ -105,7 +105,7 @@ extension HomeDetailController: UICollectionViewDelegateFlowLayout {
 		if indexPath.item == 0 {
 			return .init(width: view.frame.width, height: 370)
 		} else {
-			return .init(width: view.frame.width, height: 250)
+			return .init(width: view.frame.width, height: 550)
 		}
 	}
 	

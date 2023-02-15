@@ -17,6 +17,8 @@ struct DetailMovie: Decodable {
 	let ratingImdb: Double?
 	let year: Int
 	let posterUrl, posterUrlPreview: String
+	let filmLength: Int?
+	let description: String?
 }
 
 struct Country: Decodable {
