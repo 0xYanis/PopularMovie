@@ -26,6 +26,7 @@ class HomePageController: BaseController {
 	
 	var popularMovies: Page?
 	var tvGroup = [TVGroup]()
+	var mostExpected: MostExpected?
 	
 	
 	override func viewDidLoad() {
@@ -49,9 +50,7 @@ class HomePageController: BaseController {
 		fetchData()
 		
 		
-		refreshControl.tintColor = .NavBarTextColor
-		refreshControl.addTarget(self, action: #selector(self.refreshAction(_:)), for: .valueChanged)
-		collectionView.refreshControl = refreshControl
+		setupRefreshControl()
 	}
 	
 	
@@ -59,6 +58,13 @@ class HomePageController: BaseController {
 		definesPresentationContext = true
 		navigationItem.searchController = self.searchController
 		navigationItem.hidesSearchBarWhenScrolling = true
+	}
+	
+	
+	fileprivate func setupRefreshControl() {
+		refreshControl.tintColor = .NavBarTextColor
+		refreshControl.addTarget(self, action: #selector(self.refreshAction(_:)), for: .valueChanged)
+		collectionView.refreshControl = refreshControl
 	}
 	
 	
@@ -88,6 +94,8 @@ class HomePageController: BaseController {
 			
 		case UICollectionView.elementKindSectionFooter:
 			let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerId, for: indexPath) as! HomeFooter
+			footer.footerHorizontalController.mostExpected = mostExpected
+			footer.footerHorizontalController.collectionView.reloadData()
 			return footer
 			
 			
@@ -145,6 +153,14 @@ extension HomePageController {
 		Service.shared.fetchMiniSeries { tvgroup, error in
 			dispatchGroup.leave()
 			groupTwo = tvgroup
+		}
+		
+		
+		dispatchGroup.enter()
+		Service.shared.fetchMostExpected { mostMovies, error in
+			dispatchGroup.leave()
+			self.mostExpected = mostMovies
+			print(mostMovies)
 		}
 		
 		

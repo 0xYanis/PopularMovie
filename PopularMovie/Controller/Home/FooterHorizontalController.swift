@@ -11,6 +11,7 @@ class FooterHorizontalController: HorizontalSnappingController {
 	
 	
 	fileprivate let cellId = "cellId"
+	var mostExpected: MostExpected?
 	
 	
 	override func viewDidLoad() {
@@ -31,6 +32,13 @@ class FooterHorizontalController: HorizontalSnappingController {
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeFooterCell
+		let topAwait = mostExpected?.films[indexPath.item]
+		let genres = topAwait?.genres.first
+		cell.imageView.loadImage(urlString: topAwait?.posterUrlPreview ?? "")
+		cell.nameLabel.text = topAwait?.nameRu ?? topAwait?.nameEn ?? ""
+		cell.dateLabel.text = topAwait?.year
+		cell.ratingLabel.text = topAwait?.rating
+		cell.descriptionLabel.text = genres?.genre ?? ""
 		return cell
 	}
 }

@@ -32,6 +32,12 @@ class Service {
 	}
 	
 	
+	func fetchMostExpected(completion: @escaping (MostExpected?, Error?) -> ()) {
+		let urlString = "https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_AWAIT_FILMS&page=1"
+		fetchGenericJSONData(urlString, completion: completion)
+	}
+	
+	
 	func fetchGenericJSONData<T: Decodable>(_ urlString: String, completion: @escaping (T?, Error?) -> ()) {
 		guard let url = URL(string: urlString) else { return }
 		var request = URLRequest(url:url)
