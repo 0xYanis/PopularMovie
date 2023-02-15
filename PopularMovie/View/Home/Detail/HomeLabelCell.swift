@@ -45,7 +45,6 @@ class HomeLabelCell: UICollectionViewCell {
 		addSubview(verticalStack)
 		verticalStack.fillSuperview(padding: .init(top: 0, left: 20, bottom: 0, right: 20))
 		verticalStack.centerYInSuperview()
-		backgroundColor = .black
 	}
 	
 	

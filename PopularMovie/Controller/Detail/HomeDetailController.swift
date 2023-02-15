@@ -37,7 +37,7 @@ class HomeDetailController: BaseController {
 		
 		
 		collectionView.contentInsetAdjustmentBehavior = .never
-		collectionView.backgroundColor = UIColor(named: "background")
+		collectionView.backgroundColor = .black
 		collectionView.register(HomePosterCell.self, forCellWithReuseIdentifier: posterId)
 		collectionView.register(HomeLabelCell.self, forCellWithReuseIdentifier: labelId)
 		
