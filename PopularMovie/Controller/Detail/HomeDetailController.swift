@@ -17,7 +17,6 @@ class HomeDetailController: BaseController {
 	
 	
 	fileprivate var popularMovies: DetailMovie?
-	fileprivate var tvGroup: TVGroup?
 	fileprivate var timer: Timer?
 	
 	

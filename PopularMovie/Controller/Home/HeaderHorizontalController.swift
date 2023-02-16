@@ -14,8 +14,6 @@ class HeaderHorizontalController: HorizontalSnappingController {
 	
 	
 	var popularMovies: Page?
-	
-	
 	var didSelectHandler: ((Film)->())?
 	
 	

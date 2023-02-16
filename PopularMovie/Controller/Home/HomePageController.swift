@@ -85,6 +85,7 @@ class HomePageController: BaseController {
 			header.headerHorizontalController.popularMovies = popularMovies
 			header.headerHorizontalController.collectionView.reloadData()
 			
+			
 			header.headerHorizontalController.didSelectHandler = { [weak self] itemMovie in
 				let controller = HomeDetailController(filmId: itemMovie.filmId)
 				self?.navigationController?.pushViewController(controller, animated: true)

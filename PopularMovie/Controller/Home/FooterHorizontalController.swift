@@ -11,6 +11,8 @@ class FooterHorizontalController: HorizontalSnappingController {
 	
 	
 	fileprivate let cellId = "cellId"
+	
+	
 	var mostExpected: MostExpected?
 	
 	
@@ -26,7 +28,7 @@ class FooterHorizontalController: HorizontalSnappingController {
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 5
+		return mostExpected?.films.count ?? 0
 	}
 	
 	
