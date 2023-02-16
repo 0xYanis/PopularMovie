@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeLabelCell: UICollectionViewCell {
+class DetailLabelCell: UICollectionViewCell {
 	
 	
 	var movie: DetailMovie? {
@@ -50,7 +50,7 @@ class HomeLabelCell: UICollectionViewCell {
 		
 		addSubview(verticalStack)
 		
-		verticalStack.fillSuperview(padding: .init(top: 0, left: 16, bottom: 50, right: 16))
+		verticalStack.fillSuperview(padding: .init(top: 16, left: 16, bottom: 50, right: 16))
 	}
 	
 	

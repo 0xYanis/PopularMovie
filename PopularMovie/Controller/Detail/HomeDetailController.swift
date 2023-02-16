@@ -38,8 +38,8 @@ class HomeDetailController: BaseController {
 		collectionView.contentInsetAdjustmentBehavior = .never
 		collectionView.backgroundColor = .black
 		collectionView.showsVerticalScrollIndicator = false
-		collectionView.register(HomePosterCell.self, forCellWithReuseIdentifier: posterId)
-		collectionView.register(HomeLabelCell.self, forCellWithReuseIdentifier: labelId)
+		collectionView.register(DetailPosterCell.self, forCellWithReuseIdentifier: posterId)
+		collectionView.register(DetailLabelCell.self, forCellWithReuseIdentifier: labelId)
 		
 		
 		fetchData()
@@ -87,11 +87,11 @@ class HomeDetailController: BaseController {
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		if indexPath.item == 0 {
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: posterId, for: indexPath) as! HomePosterCell
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: posterId, for: indexPath) as! DetailPosterCell
 			cell.movie = popularMovies
 			return cell
 		} else {
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: labelId, for: indexPath) as! HomeLabelCell
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: labelId, for: indexPath) as! DetailLabelCell
 			cell.movie = popularMovies
 			return cell
 		}

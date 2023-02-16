@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomePosterCell: UICollectionViewCell {
+class DetailPosterCell: UICollectionViewCell {
 	
 	
 	var movie: DetailMovie! {
