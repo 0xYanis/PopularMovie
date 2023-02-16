@@ -18,7 +18,8 @@ class MediaPageController: BaseController {
 		
 		
 		collectionView.backgroundColor = UIColor(named: "background")
-		collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+		collectionView.showsVerticalScrollIndicator = false
+		collectionView.register(MediaCell.self, forCellWithReuseIdentifier: cellId)
 	}
 	
 	
@@ -28,8 +29,7 @@ class MediaPageController: BaseController {
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-		cell.backgroundColor = .purple
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MediaCell
 		return cell
 	}
 }
@@ -37,7 +37,7 @@ class MediaPageController: BaseController {
 
 extension MediaPageController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return .init(width: view.frame.width, height: 200)
+		return .init(width: view.frame.width, height: 210)
 	}
 	
 	

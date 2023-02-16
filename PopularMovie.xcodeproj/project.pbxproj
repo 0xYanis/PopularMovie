@@ -24,6 +24,7 @@
 		09672FA32995C0AE00931891 /* HomeRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672FA22995C0AE00931891 /* HomeRowCell.swift */; };
 		09672FA52995C36E00931891 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672FA42995C36E00931891 /* VerticalStackView.swift */; };
 		099D258A299E931A00399AE5 /* MediaPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099D2589299E931A00399AE5 /* MediaPageController.swift */; };
+		099D258E299E98C600399AE5 /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099D258D299E98C600399AE5 /* MediaCell.swift */; };
 		09A39FF42996F9D700AD821F /* TVGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A39FF32996F9D700AD821F /* TVGroup.swift */; };
 		09C4B67729965D6C00F49402 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67629965D6C00F49402 /* Page.swift */; };
 		09C4B67929965E2D00F49402 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67829965E2D00F49402 /* Service.swift */; };
@@ -59,6 +60,7 @@
 		09672FA22995C0AE00931891 /* HomeRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRowCell.swift; sourceTree = "<group>"; };
 		09672FA42995C36E00931891 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		099D2589299E931A00399AE5 /* MediaPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPageController.swift; sourceTree = "<group>"; };
+		099D258D299E98C600399AE5 /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
 		09A39FF32996F9D700AD821F /* TVGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGroup.swift; sourceTree = "<group>"; };
 		09C4B67629965D6C00F49402 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		09C4B67829965E2D00F49402 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		091F4C1D2993D4AD00274A9B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				099D258C299E98B500399AE5 /* Media */,
 				09672F942995B10C00931891 /* Home */,
 			);
 			path = View;
@@ -213,6 +216,14 @@
 			isa = PBXGroup;
 			children = (
 				099D2589299E931A00399AE5 /* MediaPageController.swift */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		099D258C299E98B500399AE5 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				099D258D299E98C600399AE5 /* MediaCell.swift */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -326,6 +337,7 @@
 				09672FA32995C0AE00931891 /* HomeRowCell.swift in Sources */,
 				09C4B67929965E2D00F49402 /* Service.swift in Sources */,
 				09EB98DD2997E01400995DD4 /* HomeDetailController.swift in Sources */,
+				099D258E299E98C600399AE5 /* MediaCell.swift in Sources */,
 				091F4C082993D38C00274A9B /* SceneDelegate.swift in Sources */,
 				09672FA12995B98300931891 /* SnappingLayout.swift in Sources */,
 				091F4C202993D60200274A9B /* HomePageController.swift in Sources */,
