@@ -23,6 +23,7 @@
 		09672FA12995B98300931891 /* SnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672FA02995B98300931891 /* SnappingLayout.swift */; };
 		09672FA32995C0AE00931891 /* HomeRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672FA22995C0AE00931891 /* HomeRowCell.swift */; };
 		09672FA52995C36E00931891 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09672FA42995C36E00931891 /* VerticalStackView.swift */; };
+		099D258A299E931A00399AE5 /* MediaPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099D2589299E931A00399AE5 /* MediaPageController.swift */; };
 		09A39FF42996F9D700AD821F /* TVGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A39FF32996F9D700AD821F /* TVGroup.swift */; };
 		09C4B67729965D6C00F49402 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67629965D6C00F49402 /* Page.swift */; };
 		09C4B67929965E2D00F49402 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B67829965E2D00F49402 /* Service.swift */; };
@@ -57,6 +58,7 @@
 		09672FA02995B98300931891 /* SnappingLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnappingLayout.swift; sourceTree = "<group>"; };
 		09672FA22995C0AE00931891 /* HomeRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRowCell.swift; sourceTree = "<group>"; };
 		09672FA42995C36E00931891 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
+		099D2589299E931A00399AE5 /* MediaPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPageController.swift; sourceTree = "<group>"; };
 		09A39FF32996F9D700AD821F /* TVGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGroup.swift; sourceTree = "<group>"; };
 		09C4B67629965D6C00F49402 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		09C4B67829965E2D00F49402 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				09672F922995AEC600931891 /* BaseTabBarController.swift */,
 				09C4B67C2996677800F49402 /* HorizontalSnappingController.swift */,
 				09672F8E2995A2E000931891 /* Home */,
+				099D258B299E932000399AE5 /* Media */,
 				09672F8F2995A2EF00931891 /* Detail */,
 			);
 			path = Controller;
@@ -204,6 +207,14 @@
 				09EB98DE2997E58C00995DD4 /* Detail */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		099D258B299E932000399AE5 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				099D2589299E931A00399AE5 /* MediaPageController.swift */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 		09EB98DE2997E58C00995DD4 /* Detail */ = {
@@ -295,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09A39FF42996F9D700AD821F /* TVGroup.swift in Sources */,
+				099D258A299E931A00399AE5 /* MediaPageController.swift in Sources */,
 				09EB98E229980A6F00995DD4 /* DetailLabelCell.swift in Sources */,
 				0921ED49299AC7D80066B596 /* MostExpected.swift in Sources */,
 				09EB98E62998243500995DD4 /* Detail.swift in Sources */,

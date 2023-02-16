@@ -30,7 +30,7 @@ class BaseTabBarController: UITabBarController {
 	private func createTabBar() {
 		viewControllers = [
 			createNavController(HomePageController(), title: "Movve", tabbarTitle: "Home", imageName: "house.fill"),
-			createNavController(UIViewController(), title: "Media", tabbarTitle: "Media", imageName: "film.fill"),
+			createNavController(MediaPageController(), title: "Media", tabbarTitle: "Media", imageName: "film.fill"),
 			createNavController(UIViewController(), title: "Search", tabbarTitle: "Search", imageName: "magnifyingglass"),
 			createNavController(UIViewController(), title: "Account", tabbarTitle: "Account", imageName: "person.fill")
 		]
