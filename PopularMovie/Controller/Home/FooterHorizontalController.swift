@@ -38,9 +38,9 @@ class FooterHorizontalController: HorizontalSnappingController {
 		let genres = topAwait?.genres.first
 		cell.imageView.loadImage(urlString: topAwait?.posterUrlPreview ?? "")
 		cell.nameLabel.text = topAwait?.nameRu ?? topAwait?.nameEn ?? ""
-		cell.dateLabel.text = topAwait?.year
-		cell.ratingLabel.text = topAwait?.rating
-		cell.descriptionLabel.text = genres?.genre ?? ""
+		cell.dateLabel.text = "Год выхода: " + (topAwait?.year ?? "")
+		cell.ratingLabel.text = "Рейтинг: " + (topAwait?.rating ?? "")
+		cell.descriptionLabel.text = "Жанр: " + (genres?.genre ?? "")
 		return cell
 	}
 }
