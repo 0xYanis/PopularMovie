@@ -37,9 +37,9 @@ class HomeDetailController: BaseController {
 		
 		collectionView.contentInsetAdjustmentBehavior = .never
 		collectionView.backgroundColor = .black
+		collectionView.showsVerticalScrollIndicator = false
 		collectionView.register(HomePosterCell.self, forCellWithReuseIdentifier: posterId)
 		collectionView.register(HomeLabelCell.self, forCellWithReuseIdentifier: labelId)
-		
 		
 		
 		fetchData()

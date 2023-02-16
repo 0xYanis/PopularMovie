@@ -45,19 +45,11 @@ class HomePageController: BaseController {
 		view.addSubview(activityIndecatorView)
 		activityIndecatorView.fillSuperview()
 		
-		
-		setupSearchBar()
+
 		fetchData()
 		
 		
 		setupRefreshControl()
-	}
-	
-	
-	fileprivate func setupSearchBar() {
-		definesPresentationContext = true
-		navigationItem.searchController = self.searchController
-		navigationItem.hidesSearchBarWhenScrolling = true
 	}
 	
 	
@@ -71,6 +63,7 @@ class HomePageController: BaseController {
 	@objc fileprivate func refreshAction(_ sender: AnyObject) {
 		self.popularMovies = nil
 		self.tvGroup.removeAll()
+		
 		self.fetchData()
 		refreshControl.endRefreshing()
 	}
