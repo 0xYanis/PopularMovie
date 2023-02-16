@@ -42,6 +42,7 @@ class HomeDetailController: BaseController {
 		collectionView.register(DetailLabelCell.self, forCellWithReuseIdentifier: labelId)
 		
 		
+		setupAddToFavoriteButton()
 		fetchData()
 	}
 	
@@ -68,16 +69,10 @@ class HomeDetailController: BaseController {
 	}
 	
 	
-	fileprivate func fetchData() {
-		let urlString = "https://kinopoiskapiunofficial.tech/api/v2.2/films/\(self.filmId)"
-		Service.shared.fetchGenericJSONData(urlString) { (result: DetailMovie?, err) in
-			let movie = result
-			self.popularMovies = movie
-			DispatchQueue.main.async {
-				self.collectionView.reloadData()
-			}
-		}
+	fileprivate func setupAddToFavoriteButton() {
+		
 	}
+	
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -94,6 +89,19 @@ class HomeDetailController: BaseController {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: labelId, for: indexPath) as! DetailLabelCell
 			cell.movie = popularMovies
 			return cell
+		}
+	}
+}
+
+extension HomeDetailController {
+	fileprivate func fetchData() {
+		let urlString = "https://kinopoiskapiunofficial.tech/api/v2.2/films/\(self.filmId)"
+		Service.shared.fetchGenericJSONData(urlString) { (result: DetailMovie?, err) in
+			let movie = result
+			self.popularMovies = movie
+			DispatchQueue.main.async {
+				self.collectionView.reloadData()
+			}
 		}
 	}
 }
