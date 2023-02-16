@@ -70,9 +70,15 @@ class HomeDetailController: BaseController {
 	
 	
 	fileprivate func setupAddToFavoriteButton() {
-		
+		let starImage = UIImage(systemName: "star.fill")
+		let addToFavoriteButt = UIBarButtonItem(image: starImage, style: .plain, target: self, action: #selector(addToFavorite))
+		navigationItem.setRightBarButton(addToFavoriteButt, animated: true)
 	}
 	
+	
+	@objc private func addToFavorite() {
+		print("Save to UserDefaults: \(self.filmId)")
+	}
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
