@@ -203,13 +203,13 @@
 		09672F942995B10C00931891 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				09EB98DE2997E58C00995DD4 /* Detail */,
 				09672F952995B13B00931891 /* HomeHeader.swift */,
 				09C4B67E29966D3D00F49402 /* HomeHeaderCell.swift */,
 				09672F972995B61F00931891 /* HomeGroupCell.swift */,
 				09672FA22995C0AE00931891 /* HomeRowCell.swift */,
 				09EB98D62997AC2200995DD4 /* HomeFooter.swift */,
 				09EB98DA2997B8A800995DD4 /* HomeFooterCell.swift */,
-				09EB98DE2997E58C00995DD4 /* Detail */,
 			);
 			path = Home;
 			sourceTree = "<group>";

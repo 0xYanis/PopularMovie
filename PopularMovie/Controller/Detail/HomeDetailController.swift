@@ -13,7 +13,7 @@ class HomeDetailController: BaseController {
 	fileprivate let posterId = "posterId"
 	fileprivate let controlId = "controlId"
 	fileprivate let labelId = "labelId"
-
+	
 	
 	fileprivate let filmId: Int
 	fileprivate var popularMovies: DetailMovie?
@@ -78,7 +78,7 @@ class HomeDetailController: BaseController {
 	
 	
 	@objc private func addToFavorite() {
-		print("Save to UserDefaults: \(self.filmId)")
+		
 	}
 	
 	
@@ -107,7 +107,7 @@ class HomeDetailController: BaseController {
 	
 	
 	fileprivate lazy var kinopoiskUrl = "https://www.kinopoisk.ru/film/\(self.filmId)/"
-	fileprivate lazy var activityItems = ["Check out this Film!", kinopoiskUrl]
+	fileprivate lazy var activityItems = ["Смотри что я нашел!", popularMovies?.nameRu ?? "", kinopoiskUrl]
 	
 	
 	@objc fileprivate func shareTapped() {
@@ -117,14 +117,14 @@ class HomeDetailController: BaseController {
 	@objc fileprivate func linkTapped() {
 		guard let url = URL(string: kinopoiskUrl) else { return }
 		if UIApplication.shared.canOpenURL(url) {
-			 UIApplication.shared.open(url, options: [:], completionHandler: nil)
+			UIApplication.shared.open(url, options: [:], completionHandler: nil)
 		}
 	}
 	@objc fileprivate func likeTapped() {
-		print("save to UD: \(self.filmId)")
+		print("add \(popularMovies?.nameRu ?? "") to favorite list")
 	}
-	
 }
+
 
 extension HomeDetailController {
 	fileprivate func fetchData() {
