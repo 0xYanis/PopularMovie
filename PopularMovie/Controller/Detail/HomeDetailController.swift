@@ -12,8 +12,9 @@ class HomeDetailController: BaseController {
 	
 	fileprivate let filmId: Int
 	fileprivate let posterId = "posterId"
+	fileprivate let controlId = "controlId"
 	fileprivate let labelId = "labelId"
-	fileprivate let castId = "castId"
+
 	
 	
 	fileprivate var popularMovies: DetailMovie?
@@ -39,6 +40,7 @@ class HomeDetailController: BaseController {
 		collectionView.backgroundColor = .black
 		collectionView.showsVerticalScrollIndicator = false
 		collectionView.register(DetailPosterCell.self, forCellWithReuseIdentifier: posterId)
+		collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: controlId)
 		collectionView.register(DetailLabelCell.self, forCellWithReuseIdentifier: labelId)
 		
 		
@@ -82,7 +84,7 @@ class HomeDetailController: BaseController {
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 2
+		return 3
 	}
 	
 	
@@ -90,6 +92,10 @@ class HomeDetailController: BaseController {
 		if indexPath.item == 0 {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: posterId, for: indexPath) as! DetailPosterCell
 			cell.movie = popularMovies
+			return cell
+		} else if indexPath.item == 1 {
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: controlId, for: indexPath)
+			cell.backgroundColor = .purple
 			return cell
 		} else {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: labelId, for: indexPath) as! DetailLabelCell
@@ -117,8 +123,10 @@ extension HomeDetailController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		if indexPath.item == 0 {
 			return .init(width: view.frame.width, height: 370)
+		} else if indexPath.item == 1 {
+			return .init(width: view.frame.width, height: 100)
 		} else {
-			return .init(width: view.frame.width, height: 550)
+			return .init(width: view.frame.width, height: 400)
 		}
 	}
 	
