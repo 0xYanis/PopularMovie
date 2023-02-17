@@ -10,13 +10,12 @@ import UIKit
 class HomeDetailController: BaseController {
 	
 	
-	fileprivate let filmId: Int
 	fileprivate let posterId = "posterId"
 	fileprivate let controlId = "controlId"
 	fileprivate let labelId = "labelId"
 
 	
-	
+	fileprivate let filmId: Int
 	fileprivate var popularMovies: DetailMovie?
 	fileprivate var timer: Timer?
 	
@@ -95,6 +94,9 @@ class HomeDetailController: BaseController {
 			return cell
 		} else if indexPath.item == 1 {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: controlId, for: indexPath) as! DetailControlCell
+			cell.shareButton.addTarget(self, action: #selector(shareTapped), for: .touchUpInside)
+			cell.linkButton.addTarget(self, action: #selector(linkTapped), for: .touchUpInside)
+			cell.likeButton.addTarget(self, action: #selector(likeTapped), for: .touchUpInside)
 			return cell
 		} else {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: labelId, for: indexPath) as! DetailLabelCell
@@ -102,6 +104,26 @@ class HomeDetailController: BaseController {
 			return cell
 		}
 	}
+	
+	
+	fileprivate lazy var kinopoiskUrl = "https://www.kinopoisk.ru/film/\(self.filmId)/"
+	fileprivate lazy var activityItems = ["Check out this Film!", kinopoiskUrl]
+	
+	
+	@objc fileprivate func shareTapped() {
+		let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+		present(activityVC, animated: true, completion: nil)
+	}
+	@objc fileprivate func linkTapped() {
+		guard let url = URL(string: kinopoiskUrl) else { return }
+		if UIApplication.shared.canOpenURL(url) {
+			 UIApplication.shared.open(url, options: [:], completionHandler: nil)
+		}
+	}
+	@objc fileprivate func likeTapped() {
+		print("save to UD: \(self.filmId)")
+	}
+	
 }
 
 extension HomeDetailController {
