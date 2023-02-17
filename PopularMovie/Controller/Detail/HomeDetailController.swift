@@ -40,7 +40,7 @@ class HomeDetailController: BaseController {
 		collectionView.backgroundColor = .black
 		collectionView.showsVerticalScrollIndicator = false
 		collectionView.register(DetailPosterCell.self, forCellWithReuseIdentifier: posterId)
-		collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: controlId)
+		collectionView.register(DetailControlCell.self, forCellWithReuseIdentifier: controlId)
 		collectionView.register(DetailLabelCell.self, forCellWithReuseIdentifier: labelId)
 		
 		
@@ -94,8 +94,7 @@ class HomeDetailController: BaseController {
 			cell.movie = popularMovies
 			return cell
 		} else if indexPath.item == 1 {
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: controlId, for: indexPath)
-			cell.backgroundColor = .purple
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: controlId, for: indexPath) as! DetailControlCell
 			return cell
 		} else {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: labelId, for: indexPath) as! DetailLabelCell
@@ -124,9 +123,9 @@ extension HomeDetailController: UICollectionViewDelegateFlowLayout {
 		if indexPath.item == 0 {
 			return .init(width: view.frame.width, height: 370)
 		} else if indexPath.item == 1 {
-			return .init(width: view.frame.width, height: 100)
+			return .init(width: view.frame.width, height: 70)
 		} else {
-			return .init(width: view.frame.width, height: 400)
+			return .init(width: view.frame.width, height: 500)
 		}
 	}
 	

@@ -28,6 +28,17 @@ extension UIImageView {
 }
 
 
+extension UIButton {
+	convenience init(height: CGFloat, width: CGFloat, cornerRadius: CGFloat) {
+		self.init(frame: .zero)
+		self.backgroundColor = .NavBarTextColor
+		self.layer.cornerRadius = cornerRadius
+		self.constrainWidth(constant: width)
+		self.constrainHeight(constant: height)
+	}
+}
+
+
 extension UIStackView {
 	convenience init(arrangedSubviews: [UIView], customSpacing: CGFloat = 0) {
 		self.init(arrangedSubviews: arrangedSubviews)
