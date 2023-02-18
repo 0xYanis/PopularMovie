@@ -43,7 +43,6 @@ class HomeDetailController: BaseController {
 		collectionView.register(DetailLabelCell.self, forCellWithReuseIdentifier: labelId)
 		
 		
-		setupAddToFavoriteButton()
 		fetchData()
 	}
 	
@@ -67,18 +66,6 @@ class HomeDetailController: BaseController {
 		timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { _ in
 			self.tabBarController?.tabBar.isHidden = hidden
 		})
-	}
-	
-	
-	fileprivate func setupAddToFavoriteButton() {
-		let starImage = UIImage(systemName: "star.fill")
-		let addToFavoriteButt = UIBarButtonItem(image: starImage, style: .plain, target: self, action: #selector(addToFavorite))
-		navigationItem.setRightBarButton(addToFavoriteButt, animated: true)
-	}
-	
-	
-	@objc private func addToFavorite() {
-		
 	}
 	
 	
