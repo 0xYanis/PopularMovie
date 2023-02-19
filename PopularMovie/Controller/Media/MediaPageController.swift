@@ -16,12 +16,6 @@ class MediaPageController: BaseController {
 	var favoriteFilm: [NSManagedObject] = []
 	
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		fetchAllFilms()
-	}
-	
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -30,6 +24,12 @@ class MediaPageController: BaseController {
 		collectionView.backgroundColor = UIColor(named: "background")
 		collectionView.showsVerticalScrollIndicator = false
 		collectionView.register(MediaCell.self, forCellWithReuseIdentifier: cellId)
+	}
+	
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		fetchAllFilms()
 	}
 	
 	
