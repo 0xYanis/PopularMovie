@@ -12,6 +12,7 @@ class MediaPageController: BaseController {
 	
 	
 	fileprivate let cellId  = "cellId"
+	fileprivate let refreshControl = UIRefreshControl()
 	var favoriteFilm: [NSManagedObject] = []
 	
 	
@@ -25,11 +26,24 @@ class MediaPageController: BaseController {
 		super.viewDidLoad()
 
 		
+		setupRefreshControl()
 		collectionView.backgroundColor = UIColor(named: "background")
 		collectionView.showsVerticalScrollIndicator = false
 		collectionView.register(MediaCell.self, forCellWithReuseIdentifier: cellId)
 	}
 	
+	
+	fileprivate func setupRefreshControl() {
+		refreshControl.tintColor = .NavBarTextColor
+		refreshControl.addTarget(self, action: #selector(self.refreshAction(_:)), for: .valueChanged)
+		collectionView.refreshControl = refreshControl
+	}
+	
+	
+	@objc fileprivate func refreshAction(_ sender: AnyObject) {
+		collectionView.reloadData()
+		refreshControl.endRefreshing()
+	}
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return favoriteFilm.count
@@ -52,6 +66,7 @@ class MediaPageController: BaseController {
 	func fetchAllFilms(){
 		if DataStoreManager.shared.fetchAllFilms() != nil{
 			favoriteFilm = DataStoreManager.shared.fetchAllFilms()!
+			collectionView.reloadData()
 		}
 	}
 }
