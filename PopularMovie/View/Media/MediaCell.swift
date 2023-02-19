@@ -19,10 +19,6 @@ class MediaCell: UICollectionViewCell {
 		super.init(frame: frame)
 		
 		
-		
-		imageView.backgroundColor = .gray
-		
-		
 		let horizontalStack = UIStackView(arrangedSubviews: [
 			nameLabel, dateLabel
 		], customSpacing: 8)
@@ -30,7 +26,7 @@ class MediaCell: UICollectionViewCell {
 			imageView, horizontalStack
 		], spacing: 5)
 		addSubview(stackView)
-		stackView.fillSuperview(padding: .init(top: 0, left: 16, bottom: 0, right: 16))
+		stackView.fillSuperview(padding: .init(top: 0, left: 20, bottom: 10, right: 20))
 	}
 	
 	
