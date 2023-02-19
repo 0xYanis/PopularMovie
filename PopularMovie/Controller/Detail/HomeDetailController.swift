@@ -106,7 +106,7 @@ class HomeDetailController: BaseController {
 	
 	
 	fileprivate lazy var kinopoiskUrl = "https://www.kinopoisk.ru/film/\(self.filmId)/"
-	fileprivate lazy var activityItems = ["Смотри что я нашел!", popularMovies?.nameRu ?? "", kinopoiskUrl]
+	fileprivate lazy var activityItems = ["Советую посмотреть", kinopoiskUrl]
 	
 	
 	@objc fileprivate func shareTapped() {
