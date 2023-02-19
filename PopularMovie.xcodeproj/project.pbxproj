@@ -515,6 +515,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_FLATTEN_NIBS = NO;
 				INFOPLIST_FILE = PopularMovie/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Movve;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -546,6 +547,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_FLATTEN_NIBS = NO;
 				INFOPLIST_FILE = PopularMovie/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Movve;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
