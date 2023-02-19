@@ -87,6 +87,9 @@ class HomeDetailController: BaseController {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: controlId, for: indexPath) as! DetailControlCell
 			if checkFavorite() {
 				cell.likeButton.tintColor = .yellow
+			} else {
+				cell.likeButton.tintColor = .white
+				cell.likeButton.imageView?.image = UIImage(systemName: "star")
 			}
 			cell.shareButton.addTarget(self, action: #selector(shareTapped), for: .touchUpInside)
 			cell.linkButton.addTarget(self, action: #selector(linkTapped), for: .touchUpInside)
