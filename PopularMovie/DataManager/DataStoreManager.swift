@@ -50,8 +50,7 @@ class DataStoreManager {
 			do {
 				try viewContext.save()
 				return films as? Favorite
-			} catch let error as NSError {
-				print("Could not save. \(error), \(error.userInfo)")
+			} catch {
 				return nil
 			}
 		} else {
@@ -69,8 +68,7 @@ class DataStoreManager {
 			
 			do {
 				try viewContext.save()
-			} catch let error as NSError  {
-				print("Could not save \(error), \(error.userInfo)")
+			} catch {
 			}
 		}
 	}
@@ -105,8 +103,7 @@ class DataStoreManager {
 		do {
 			let films = try viewContext.fetch(fetchRequest)
 			return films as? [Favorite]
-		} catch let error as NSError {
-			print("Could not fetch. \(error), \(error.userInfo)")
+		} catch {
 			return nil
 		}
 	}
@@ -135,7 +132,6 @@ class DataStoreManager {
 			try viewContext.execute(deleteRequest)
 			try viewContext.save()
 		} catch {
-			print ("There was an error")
 		}
 	}
 }
