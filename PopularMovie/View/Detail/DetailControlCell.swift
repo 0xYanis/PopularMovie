@@ -43,9 +43,5 @@ class DetailControlCell: UICollectionViewCell {
 		
 		linkButton.setTitle("Play", for: .normal)
 		linkButton.setTitleColor(.white, for: .normal)
-		
-		
-		likeButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-		likeButton.tintColor = .white
 	}
 }
