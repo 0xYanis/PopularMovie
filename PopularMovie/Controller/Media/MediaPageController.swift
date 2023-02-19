@@ -6,16 +6,24 @@
 //
 
 import UIKit
+import CoreData
 
 class MediaPageController: BaseController {
 	
 	
-	let cellId  = "cellId"
+	fileprivate let cellId  = "cellId"
+	var favoriteFilm: [NSManagedObject] = []
+	
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		fetchAllFilms()
+	}
 	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
 		
 		collectionView.backgroundColor = UIColor(named: "background")
 		collectionView.showsVerticalScrollIndicator = false
@@ -24,16 +32,29 @@ class MediaPageController: BaseController {
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 5
+		return favoriteFilm.count
 	}
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MediaCell
+		let film = favoriteFilm[indexPath.item]
+		let image = film.value(forKey: "image") as? String ?? ""
+		let title = film.value(forKey: "title") as? String ?? ""
+		let year = film.value(forKey: "year") as? Int16 ?? 0
+		cell.imageView.loadImage(urlString: image)
+		cell.nameLabel.text = title
+		cell.dateLabel.text = "\(year)"
 		return cell
 	}
+	
+	
+	func fetchAllFilms(){
+		if DataStoreManager.shared.fetchAllFilms() != nil{
+			favoriteFilm = DataStoreManager.shared.fetchAllFilms()!
+		}
+	}
 }
-
 
 extension MediaPageController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -45,3 +66,4 @@ extension MediaPageController: UICollectionViewDelegateFlowLayout {
 		return 15
 	}
 }
+

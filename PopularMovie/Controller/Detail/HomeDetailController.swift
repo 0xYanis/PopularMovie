@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeDetailController: BaseController {
 	
@@ -18,6 +19,7 @@ class HomeDetailController: BaseController {
 	fileprivate let filmId: Int
 	fileprivate var popularMovies: DetailMovie?
 	fileprivate var timer: Timer?
+	var favoriteFilm: [NSManagedObject] = []
 	
 	
 	init(filmId: Int) {
@@ -79,12 +81,19 @@ class HomeDetailController: BaseController {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: posterId, for: indexPath) as! DetailPosterCell
 			cell.movie = popularMovies
 			return cell
+			
+			
 		} else if indexPath.item == 1 {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: controlId, for: indexPath) as! DetailControlCell
+			if checkFavorite() {
+				cell.likeButton.tintColor = .yellow
+			}
 			cell.shareButton.addTarget(self, action: #selector(shareTapped), for: .touchUpInside)
 			cell.linkButton.addTarget(self, action: #selector(linkTapped), for: .touchUpInside)
 			cell.likeButton.addTarget(self, action: #selector(likeTapped), for: .touchUpInside)
 			return cell
+			
+			
 		} else {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: labelId, for: indexPath) as! DetailLabelCell
 			cell.movie = popularMovies
@@ -101,14 +110,46 @@ class HomeDetailController: BaseController {
 		let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
 		present(activityVC, animated: true, completion: nil)
 	}
+	
+	
 	@objc fileprivate func linkTapped() {
 		guard let url = URL(string: kinopoiskUrl) else { return }
 		if UIApplication.shared.canOpenURL(url) {
 			UIApplication.shared.open(url, options: [:], completionHandler: nil)
 		}
 	}
+	
+	
 	@objc fileprivate func likeTapped() {
-		print("add \(popularMovies?.nameRu ?? "") to favorite list")
+		let film = popularMovies
+		let title = film?.nameRu ?? ""
+		let year = Int16(film?.year ?? 0)
+		if checkFavorite() == false {
+			let favorite = DataStoreManager.shared.saveFilm(image: film?.posterUrlPreview ?? "",
+															isFavorite: true,
+															title: title,
+															year: year)
+			if favorite != nil {
+				favoriteFilm.append(favorite!)
+				collectionView.reloadData()
+			}
+		} else {
+			let arrRemovedObjects = DataStoreManager.shared.deleteFilm(key: "title", value: title)
+			favoriteFilm = favoriteFilm.filter({ (param) -> Bool in
+				if (arrRemovedObjects?.contains(param as! Favorite))!{
+					return false
+				}else{
+					return true
+				}
+			})
+			collectionView.reloadData()
+		}
+	}
+	
+
+	func checkFavorite() -> Bool {
+		let isFavorite = DataStoreManager.shared.isFavoriteFilm(title: popularMovies?.nameRu ?? "")
+		return isFavorite
 	}
 }
 
