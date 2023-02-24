@@ -19,8 +19,11 @@ class HeaderHorizontalController: HorizontalSnappingController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		
+		setupCollectionView()
+	}
+	
+	
+	fileprivate func setupCollectionView() {
 		collectionView.backgroundColor = UIColor(named: "background")
 		collectionView.register(HomeHeaderCell.self, forCellWithReuseIdentifier: cellId)
 		collectionView.showsHorizontalScrollIndicator = false
