@@ -21,15 +21,20 @@ class HomeHorizontalController: BaseController {
 		super.viewDidLoad()
 		
 		
-		collectionView.backgroundColor = UIColor(named: "background")
-		collectionView.showsHorizontalScrollIndicator = false
-		collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
-		collectionView.register(HomeRowCell.self, forCellWithReuseIdentifier: cellId)
+		setupCollectionView()
 		
 		
 		if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
 			layout.scrollDirection = .horizontal
 		}
+	}
+	
+	
+	fileprivate func setupCollectionView() {
+		collectionView.backgroundColor = UIColor(named: "background")
+		collectionView.showsHorizontalScrollIndicator = false
+		collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
+		collectionView.register(HomeRowCell.self, forCellWithReuseIdentifier: cellId)
 	}
 	
 	
