@@ -37,15 +37,18 @@ class HomeDetailController: BaseController {
 		super.viewDidLoad()
 		
 		
+		setupCollectionView()
+		fetchData()
+	}
+	
+	
+	fileprivate func setupCollectionView() {
 		collectionView.contentInsetAdjustmentBehavior = .never
 		collectionView.backgroundColor = .black
 		collectionView.showsVerticalScrollIndicator = false
 		collectionView.register(DetailPosterCell.self, forCellWithReuseIdentifier: posterId)
 		collectionView.register(DetailControlCell.self, forCellWithReuseIdentifier: controlId)
 		collectionView.register(DetailLabelCell.self, forCellWithReuseIdentifier: labelId)
-		
-		
-		fetchData()
 	}
 	
 	
