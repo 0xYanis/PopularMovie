@@ -20,7 +20,12 @@ class MediaPageController: BaseController {
 		super.viewDidLoad()
 
 		
+		setupCollectionView()
 		setupRefreshControl()
+	}
+	
+	
+	fileprivate func setupCollectionView() {
 		collectionView.backgroundColor = UIColor(named: "background")
 		collectionView.showsVerticalScrollIndicator = false
 		collectionView.register(MediaCell.self, forCellWithReuseIdentifier: cellId)
