@@ -28,28 +28,26 @@ class HomePageController: BaseController {
 	var tvGroup = [TVGroup]()
 	var mostExpected: MostExpected?
 	
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		
-		collectionView.backgroundColor = UIColor(named: "background")
-		collectionView.showsVerticalScrollIndicator = false
-		
-		
-		collectionView.register(HomeHeader.self,forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
-		collectionView.register(HomeGroupCell.self, forCellWithReuseIdentifier: cellId)
-		collectionView.register(HomeFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerId)
-		
+
 		
 		view.addSubview(activityIndecatorView)
 		activityIndecatorView.fillSuperview()
 		
-
+		
+		setupCollectionView()
 		fetchData()
-		
-		
 		setupRefreshControl()
+	}
+	
+	
+	fileprivate func setupCollectionView() {
+		collectionView.backgroundColor = UIColor(named: "background")
+		collectionView.showsVerticalScrollIndicator = false
+		collectionView.register(HomeHeader.self,forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
+		collectionView.register(HomeGroupCell.self, forCellWithReuseIdentifier: cellId)
+		collectionView.register(HomeFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerId)
 	}
 	
 	
