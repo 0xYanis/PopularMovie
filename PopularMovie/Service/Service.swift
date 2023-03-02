@@ -39,26 +39,28 @@ class Service {
 	
 	
 	func fetchGenericJSONData<T: Decodable>(_ urlString: String, completion: @escaping (T?, Error?) -> ()) {
-		guard let url = URL(string: urlString) else { return }
-		var request = URLRequest(url:url)
-		request.httpMethod = "GET"
-		request.setValue("application/json", forHTTPHeaderField: "accept")
-		request.setValue("0f8b1961-213e-4781-b4ad-0d70764fa882", forHTTPHeaderField: "X-API-KEY")
-		
-		
-		URLSession.shared.dataTask(with: request) { (data, resp, err) in
-			if let err = err {
-				completion(nil, err)
-				return
-			}
+		DispatchQueue.global(qos: .background).async {
+			guard let url = URL(string: urlString) else { return }
+			var request = URLRequest(url:url)
+			request.httpMethod = "GET"
+			request.setValue("application/json", forHTTPHeaderField: "accept")
+			request.setValue("0f8b1961-213e-4781-b4ad-0d70764fa882", forHTTPHeaderField: "X-API-KEY")
 			
 			
-			do {
-				let objects = try JSONDecoder().decode(T.self, from: data!)
-				completion(objects, nil)
-			} catch {
-				completion(nil, error)
-			}
-		}.resume()
+			URLSession.shared.dataTask(with: request) { (data, resp, err) in
+				if let err = err {
+					completion(nil, err)
+					return
+				}
+				
+				
+				do {
+					let objects = try JSONDecoder().decode(T.self, from: data!)
+					completion(objects, nil)
+				} catch {
+					completion(nil, error)
+				}
+			}.resume()
+		}
 	}
 }
