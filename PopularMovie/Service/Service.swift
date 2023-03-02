@@ -39,7 +39,7 @@ class Service {
 	
 	
 	func fetchGenericJSONData<T: Decodable>(_ urlString: String, completion: @escaping (T?, Error?) -> ()) {
-		DispatchQueue.global(qos: .background).async {
+		DispatchQueue.global().async {
 			guard let url = URL(string: urlString) else { return }
 			var request = URLRequest(url:url)
 			request.httpMethod = "GET"
