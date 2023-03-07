@@ -39,7 +39,9 @@
 
 - MVC - архитектурный паттерн
 
-- CoreData - работа с хранилищем (CRUD funcs)
+- CoreData - работа с хранилищем (CRUD funcs
+
+- GCD 
 
 - Singleton Core Data
 
