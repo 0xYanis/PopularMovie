@@ -11,6 +11,9 @@ class Service {
 	
 	
 	static let shared = Service()
+
+	
+	private init() {}
 	
 	
 	func fetchMovies(completion: @escaping (Page?, Error?) -> ()) {
