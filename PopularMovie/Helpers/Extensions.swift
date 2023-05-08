@@ -65,7 +65,7 @@ extension UIImageView {
 
 extension UIColor {
 	static var tabBarItemAccent: UIColor {
-		#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 	}
 	static var tabBarColor: UIColor {
 		#colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 0.8953199576)
