@@ -39,7 +39,9 @@
 
 - MVC - архитектурный паттерн
 
-- CoreData - работа с хранилищем (CRUD funcs)
+- CoreData - работа с хранилищем (CRUD funcs
+
+- GCD 
 
 - Singleton Core Data
 
@@ -71,7 +73,7 @@
 
 6. Подключить IPhone по кабелю к ПК и выбрать в списке девайсов в XCode свой IPhone
 
-7. Скомпилировать
+7. ``` command + r ```
 
 ## Время работы с проектом
 
@@ -93,7 +95,9 @@ Business Logic:
 
 2. CRUD методы CoreData работают с конкретной сущностью, что станет проблемой при расширении БД.
 
-3. [connection] nw_connection_add_timestamp_locked_on_nw_queue [C2] Hit maximum timestamp count, will start dropping events
+3. Картинки подгружаются медленней текста (решение = кеширование)
+
+4. [connection] nw_connection_add_timestamp_locked_on_nw_queue [C2] Hit maximum timestamp count, will start dropping events
 
 Для исправления этой ошибки необходимо оптимизировать код приложения для более эффективного использования сетевого соединения.
 
