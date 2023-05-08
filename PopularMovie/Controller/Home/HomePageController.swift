@@ -7,8 +7,7 @@
 
 import UIKit
 
-class HomePageController: BaseController {
-	
+final class HomePageController: BaseController {
 	
 	fileprivate let headerId = "headerId"
 	fileprivate let cellId = "cellId"
@@ -23,49 +22,18 @@ class HomePageController: BaseController {
 		return aiv
 	}()
 	
-	
 	var popularMovies: Page?
 	var tvGroup = [TVGroup]()
 	var mostExpected: MostExpected?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-		
 		view.addSubview(activityIndecatorView)
 		activityIndecatorView.fillSuperview()
-		
-		
 		setupCollectionView()
 		fetchData()
 		setupRefreshControl()
 	}
-	
-	
-	fileprivate func setupCollectionView() {
-		collectionView.backgroundColor = UIColor(named: "background")
-		collectionView.showsVerticalScrollIndicator = false
-		collectionView.register(HomeHeader.self,forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
-		collectionView.register(HomeGroupCell.self, forCellWithReuseIdentifier: cellId)
-		collectionView.register(HomeFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerId)
-	}
-	
-	
-	fileprivate func setupRefreshControl() {
-		refreshControl.tintColor = .NavBarTextColor
-		refreshControl.addTarget(self, action: #selector(self.refreshAction(_:)), for: .valueChanged)
-		collectionView.refreshControl = refreshControl
-	}
-	
-	
-	@objc fileprivate func refreshAction(_ sender: AnyObject) {
-		self.popularMovies = nil
-		self.tvGroup.removeAll()
-		
-		self.fetchData()
-		refreshControl.endRefreshing()
-	}
-	
 	
 	override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 		
@@ -96,11 +64,9 @@ class HomePageController: BaseController {
 		}
 	}
 	
-	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return tvGroup.count
 	}
-	
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeGroupCell
@@ -120,12 +86,35 @@ class HomePageController: BaseController {
 	}
 }
 
+fileprivate extension HomePageController {
+    func setupCollectionView() {
+        collectionView.backgroundColor = UIColor(named: "background")
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.register(HomeHeader.self,forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
+        collectionView.register(HomeGroupCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(HomeFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerId)
+    }
+    
+    func setupRefreshControl() {
+        refreshControl.tintColor = .NavBarTextColor
+        refreshControl.addTarget(self, action: #selector(self.refreshAction(_:)), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+    }
+    
+    @objc func refreshAction(_ sender: AnyObject) {
+        self.popularMovies = nil
+        self.tvGroup.removeAll()
+        
+        self.fetchData()
+        refreshControl.endRefreshing()
+    }
+}
+
 extension HomePageController {
 	fileprivate func fetchData() {
 		var groupOne: TVGroup?
 		var groupTwo: TVGroup?
 		let dispatchGroup = DispatchGroup()
-		
 		
 		dispatchGroup.enter()
 		Service.shared.fetchMovies { movies, error in
@@ -133,13 +122,11 @@ extension HomePageController {
 			self.popularMovies = movies
 		}
 		
-		
 		dispatchGroup.enter()
 		Service.shared.fetchTVSeries { tvgroup, error in
 			dispatchGroup.leave()
 			groupOne = tvgroup
 		}
-		
 		
 		dispatchGroup.enter()
 		Service.shared.fetchMiniSeries { tvgroup, error in
@@ -147,13 +134,11 @@ extension HomePageController {
 			groupTwo = tvgroup
 		}
 		
-		
 		dispatchGroup.enter()
 		Service.shared.fetchMostExpected { mostMovies, error in
 			dispatchGroup.leave()
 			self.mostExpected = mostMovies
 		}
-		
 		
 		dispatchGroup.notify(queue: .main) {
 			self.activityIndecatorView.stopAnimating()
