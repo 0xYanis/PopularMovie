@@ -9,7 +9,6 @@ import UIKit
 
 class DetailLabelCell: UICollectionViewCell {
 	
-	
 	var movie: DetailMovie? {
 		didSet {
 			let year = movie?.year ?? 0
@@ -18,7 +17,6 @@ class DetailLabelCell: UICollectionViewCell {
 			let countries = movie?.countries.first ?? Country(country: "None")
 			let rating = movie?.ratingKinopoisk ?? movie?.ratingImdb ?? 0.0
 			let lenght = movie?.filmLength ?? 100
-			
 			
 			titleLabel.text = movie?.nameOriginal ?? movie?.nameRu
 			ratingLabel.text = "\(rating)"
@@ -30,7 +28,6 @@ class DetailLabelCell: UICollectionViewCell {
 		}
 	}
 	
-	
 	let titleLabel = UILabel(text: "Some Film", font: .boldSystemFont(ofSize: 28), numberOfLines: 2, color: .white)
 	let ratingLabel = UILabel(text: "0.0", font: .boldSystemFont(ofSize: 16), color: .yellow)
 	let yearLabel = UILabel(text: "None", font: .systemFont(ofSize: 16), color: .white)
@@ -41,18 +38,13 @@ class DetailLabelCell: UICollectionViewCell {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		
-		
 		let verticalStack = VerticalStackView(arrangedSubviews: [
 			titleLabel, ratingLabel, yearLabel, genreLabel, countryLabel, filmLength, descriptionLabel, UIView()
 		], spacing: 15)
 		
-		
 		addSubview(verticalStack)
-		
 		verticalStack.fillSuperview(padding: .init(top: 0, left: 16, bottom: 50, right: 16))
 	}
-	
 	
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
