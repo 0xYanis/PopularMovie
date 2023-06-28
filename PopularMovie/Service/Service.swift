@@ -36,28 +36,31 @@ final class Service {
             completion(cachedObject, nil)
             return
         }
-        DispatchQueue.global().async {
-            guard let url = URL(string: urlString) else { return }
-            var request = URLRequest(url:url)
-            request.httpMethod = "GET"
-            request.setValue("application/json", forHTTPHeaderField: "accept")
-            request.setValue("0f8b1961-213e-4781-b4ad-0d70764fa882", forHTTPHeaderField: "X-API-KEY")
-            
-            URLSession.shared.dataTask(with: request) { (data, resp, err) in
-                if let err = err {
-                    completion(nil, err)
-                    return
-                }
-                
-                do {
-                    let objects = try JSONDecoder().decode(T.self, from: data!)
-                    completion(objects, nil)
-                    
-                    CacheManager.shared.saveObject(objects as AnyObject, forKey: urlString)
-                } catch {
-                    completion(nil, error)
-                }
-            }.resume()
+        
+        guard let url = URL(string: urlString) else {
+            return
         }
+        
+        var request = URLRequest(url:url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        request.setValue("0f8b1961-213e-4781-b4ad-0d70764fa882", forHTTPHeaderField: "X-API-KEY")
+        
+        URLSession.shared.dataTask(with: request) { (data, resp, err) in
+            if let err = err {
+                completion(nil, err)
+                return
+            }
+            
+            do {
+                let objects = try JSONDecoder().decode(T.self, from: data!)
+                completion(objects, nil)
+                
+                CacheManager.shared.saveObject(objects as AnyObject, forKey: urlString)
+            } catch {
+                completion(nil, error)
+            }
+        }.resume()
     }
+    
 }
