@@ -10,6 +10,8 @@ import Foundation
 import CoreData
 
 
+public class Favorite: NSManagedObject {}
+
 extension Favorite {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Favorite> {

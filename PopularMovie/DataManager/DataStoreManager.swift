@@ -13,6 +13,7 @@ class DataStoreManager {
 	
 	static let shared = DataStoreManager()
 	
+    private init() {}
 	
 	lazy var viewContext: NSManagedObjectContext = persistentContainer.viewContext
 	

@@ -9,10 +9,12 @@ import UIKit
 
 class HomeHeader: UICollectionReusableView {
 	
-	
-	let titleLabel = UILabel(text: "Popular Movie", font: .boldSystemFont(ofSize: 20), color: .white)
+	let titleLabel = UILabel(
+        text: "Popular Movie",
+        font: .boldSystemFont(ofSize: 20),
+        color: .white
+    )
 	let headerHorizontalController = HeaderHorizontalController()
-	
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
