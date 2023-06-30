@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeRowCell: UICollectionViewCell {
+final class HomeRowCell: UICollectionViewCell {
 	
 	
 	let imageView = UIImageView(cornerRadius: 10)

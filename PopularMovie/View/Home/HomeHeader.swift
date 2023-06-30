@@ -7,28 +7,43 @@
 
 import UIKit
 
-class HomeHeader: UICollectionReusableView {
+final class HomeHeader: UICollectionReusableView {
 	
-	let titleLabel = UILabel(
+	lazy var titleLabel = UILabel(
         text: "Popular Movie",
         font: .boldSystemFont(ofSize: 20),
         color: .white
     )
-	let headerHorizontalController = HeaderHorizontalController()
+    
+	lazy var headerHorizontalController = HeaderHorizontalController()
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		
-		
-		addSubview(titleLabel)
-		titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 0))
-		
-		
-		addSubview(headerHorizontalController.view)
-		headerHorizontalController.view.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
+        initialize()
 	}
 	
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+}
+
+private extension HomeHeader {
+    func initialize() {
+        addSubview(titleLabel)
+        titleLabel.anchor(
+            top: topAnchor,
+            leading: leadingAnchor,
+            bottom: nil,
+            trailing: trailingAnchor,
+            padding: .init(top: 16, left: 16, bottom: 0, right: 0)
+        )
+        
+        addSubview(headerHorizontalController.view)
+        headerHorizontalController.view.anchor(
+            top: titleLabel.bottomAnchor,
+            leading: leadingAnchor,
+            bottom: bottomAnchor,
+            trailing: trailingAnchor
+        )
+    }
 }

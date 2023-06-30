@@ -7,22 +7,33 @@
 
 import UIKit
 
-class HomeGroupCell: UICollectionViewCell {
+final class HomeGroupCell: UICollectionViewCell {
 	
-	
-	let titleLabel = UILabel(text: "TV Series", font: .boldSystemFont(ofSize: 20), color: .white)
-	let horizontalController = HomeHorizontalController()
+	lazy var titleLabel = UILabel(
+        text: "TV Series",
+        font: .boldSystemFont(ofSize: 20),
+        color: .white
+    )
+	lazy var horizontalController = HomeHorizontalController()
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-
-		
 		addSubview(titleLabel)
-		titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 0))
-		
+		titleLabel.anchor(
+            top: topAnchor,
+            leading: leadingAnchor,
+            bottom: nil,
+            trailing: trailingAnchor,
+            padding: .init(top: 16, left: 16, bottom: 0, right: 0)
+        )
 		
 		addSubview(horizontalController.view)
-		horizontalController.view.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
+		horizontalController.view.anchor(
+            top: titleLabel.bottomAnchor,
+            leading: leadingAnchor,
+            bottom: bottomAnchor,
+            trailing: trailingAnchor
+        )
 	}
 	
 	

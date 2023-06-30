@@ -7,15 +7,13 @@
 
 import UIKit
 
-class HomeFooterCell: UICollectionViewCell {
-	
-	
-	let imageView = UIImageView(cornerRadius: 10)
-	let nameLabel = UILabel(text: "Name of Movie", font: .boldSystemFont(ofSize: 17), color: .white)
-	let dateLabel = UILabel(text: "Date: Aug. 22, 2020", font: .systemFont(ofSize: 16), color: .white)
-	let ratingLabel = UILabel(text: "Rating: 9.1", font: .systemFont(ofSize: 16), color: .white)
-	let descriptionLabel = UILabel(text: "Сюжет", font: .systemFont(ofSize: 16), color: .white)
-	
+final class HomeFooterCell: UICollectionViewCell {
+    
+    lazy var imageView = UIImageView(cornerRadius: 10)
+    lazy var nameLabel = UILabel(text: "Name of Movie", font: .boldSystemFont(ofSize: 17), color: .white)
+    lazy var dateLabel = UILabel(text: "Date: Aug. 22, 2020", font: .systemFont(ofSize: 16), color: .white)
+    lazy var ratingLabel = UILabel(text: "Rating: 9.1", font: .systemFont(ofSize: 16), color: .white)
+    lazy var descriptionLabel = UILabel(text: "Сюжет", font: .systemFont(ofSize: 16), color: .white)
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -47,7 +45,7 @@ class HomeFooterCell: UICollectionViewCell {
 	}
 	
 	
-	fileprivate func setupImageView() {
+	private func setupImageView() {
 		imageView.clipsToBounds = true
 		imageView.contentMode = .scaleAspectFill
 		imageView.constrainWidth(constant: 120)

@@ -7,12 +7,10 @@
 
 import UIKit
 
-class HomeFooter: UICollectionReusableView {
+final class HomeFooter: UICollectionReusableView {
 	
-	
-	let titleLabel = UILabel(text: "Most Expected", font: .boldSystemFont(ofSize: 20), color: .white)
-	let footerHorizontalController = FooterHorizontalController()
-	
+	lazy var titleLabel = UILabel(text: "Most Expected", font: .boldSystemFont(ofSize: 20), color: .white)
+    lazy var footerHorizontalController = FooterHorizontalController()
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
