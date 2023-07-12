@@ -18,11 +18,6 @@ final class Service {
     
     static let shared = Service()
     
-    private let headers: [String : String] = [
-        "application/json" : "accept",
-        "0f8b1961-213e-4781-b4ad-0d70764fa882" : "X-API-KEY"
-    ]
-    
     private init() {}
     
     func fetchMovies(completion: @escaping (Page?, Error?) -> ()) {
@@ -55,9 +50,8 @@ final class Service {
         var request = URLRequest(url:url)
         
         request.httpMethod = "GET"
-//        request.setValue("application/json", forHTTPHeaderField: "accept")
-//        request.setValue("0f8b1961-213e-4781-b4ad-0d70764fa882", forHTTPHeaderField: "X-API-KEY")
-        request.allHTTPHeaderFields = headers
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        request.setValue("0f8b1961-213e-4781-b4ad-0d70764fa882", forHTTPHeaderField: "X-API-KEY")
         
         URLSession.shared.dataTask(with: request) { (data, _, err) in
             if let err = err {
