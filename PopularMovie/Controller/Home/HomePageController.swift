@@ -12,8 +12,8 @@ final class HomePageController: BaseController {
     private let headerId = "headerId"
     private let cellId = "cellId"
     private let footerId = "footerId"
-    private let refreshControl = UIRefreshControl()
-    private let activityIndecatorView: UIActivityIndicatorView = {
+    private lazy var refreshControl = UIRefreshControl()
+    private lazy var activityIndecatorView: UIActivityIndicatorView = {
         let aiv = UIActivityIndicatorView(style: .medium)
         aiv.color = .NavBarTextColor
         aiv.startAnimating()
@@ -41,51 +41,74 @@ final class HomePageController: BaseController {
     ) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! HomeHeader
-            header.headerHorizontalController.popularMovies = popularMovies
-            header.headerHorizontalController.collectionView.reloadData()
+            let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: headerId,
+                for: indexPath) as! HomeHeader
+            let controller = header.headerHorizontalController
             
-            header.headerHorizontalController.didSelectHandler = { [weak self] itemMovie in
+            controller.popularMovies = popularMovies
+            controller.collectionView.reloadData()
+            
+            controller.didSelectHandler = { [weak self] itemMovie in
                 let controller = HomeDetailController(filmId: itemMovie.filmId)
                 self?.navigationController?.pushViewController(controller, animated: true)
             }
+            
             return header
             
         case UICollectionView.elementKindSectionFooter:
-            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerId, for: indexPath) as! HomeFooter
-            footer.footerHorizontalController.mostExpected = mostExpected
-            footer.footerHorizontalController.collectionView.reloadData()
-            return footer
+            let footer = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: footerId,
+                for: indexPath) as! HomeFooter
+            let controller = footer.footerHorizontalController
+            controller.mostExpected = mostExpected
+            controller.collectionView.reloadData()
             
+            return footer
             
         default:
             assert(false, "Unexpected element kind")
         }
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tvGroup.count
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        tvGroup.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeGroupCell
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: cellId,
+            for: indexPath) as! HomeGroupCell
+        let controller = cell.horizontalController
         let tvGroup = tvGroup[indexPath.item]
-        cell.horizontalController.tvGroup = tvGroup
+        
+        controller.tvGroup = tvGroup
+        
         if indexPath.item == 0 {
             cell.titleLabel.text = "TV Series"
         } else if indexPath.item == 1 {
             cell.titleLabel.text = "Mini Series"
         }
-        cell.horizontalController.collectionView.reloadData()
-        cell.horizontalController.didSelectHandler = { [weak self] itemTv in
+        controller.collectionView.reloadData()
+        controller.didSelectHandler = { [weak self] itemTv in
             let controller = HomeDetailController(filmId: itemTv.kinopoiskId)
             self?.navigationController?.pushViewController(controller, animated: true)
         }
+        
         return cell
     }
+    
 }
 
-fileprivate extension HomePageController {
+private extension HomePageController {
     func setupCollectionView() {
         collectionView.backgroundColor = UIColor(named: "background")
         collectionView.showsVerticalScrollIndicator = false
@@ -122,6 +145,7 @@ fileprivate extension HomePageController {
         self.fetchData()
         refreshControl.endRefreshing()
     }
+    
 }
 
 private extension HomePageController {
@@ -165,6 +189,7 @@ private extension HomePageController {
             self.collectionView.reloadData()
         }
     }
+    
 }
 
 // MARK: - DelegateFlowLayout protocol
@@ -203,4 +228,5 @@ extension HomePageController: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
         .init(width: view.frame.width, height: 300)
     }
+    
 }

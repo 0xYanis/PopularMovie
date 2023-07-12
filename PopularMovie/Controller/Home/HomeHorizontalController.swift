@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeHorizontalController: BaseController {
+final class HomeHorizontalController: BaseController {
     
     private let cellId = "cellId"
     
@@ -57,6 +57,7 @@ class HomeHorizontalController: BaseController {
             didSelectHandler?(film)
         }
     }
+    
 }
 
 private extension HomeHorizontalController {
@@ -66,6 +67,7 @@ private extension HomeHorizontalController {
         collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
         collectionView.register(HomeRowCell.self, forCellWithReuseIdentifier: cellId)
     }
+    
 }
 
 //MARK: - DelegateFlowLayout protocol
@@ -86,4 +88,5 @@ extension HomeHorizontalController: UICollectionViewDelegateFlowLayout {
     ) -> CGFloat {
         15
     }
+    
 }

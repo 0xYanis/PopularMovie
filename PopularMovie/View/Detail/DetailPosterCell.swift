@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailPosterCell: UICollectionViewCell {
+final class DetailPosterCell: UICollectionViewCell {
 	
 	var movie: DetailMovie! {
 		didSet {
@@ -16,9 +16,8 @@ class DetailPosterCell: UICollectionViewCell {
 		}
 	}
 	
-	private let imageView = UIImageView(cornerRadius: 15)
-	private let backImage = UIImageView()
-	
+    lazy var imageView = UIImageView(cornerRadius: 15)
+    lazy var backImage = UIImageView()
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -29,6 +28,7 @@ class DetailPosterCell: UICollectionViewCell {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+    
 }
 
 private extension DetailPosterCell {
@@ -40,10 +40,15 @@ private extension DetailPosterCell {
         backgroundView = backImage
     }
     
-    
     func setupImageView() {
         imageView.contentMode = .scaleAspectFit
         addSubview(imageView)
-        imageView.fillSuperview(padding: .init(top: 100, left: 50, bottom: 0, right: 50))
+        imageView.fillSuperview(padding: .init(
+            top: 100,
+            left: 50,
+            bottom: 0,
+            right: 50)
+        )
     }
+    
 }

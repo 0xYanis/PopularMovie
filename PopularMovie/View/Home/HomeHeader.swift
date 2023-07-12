@@ -25,6 +25,7 @@ final class HomeHeader: UICollectionReusableView {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+    
 }
 
 private extension HomeHeader {
@@ -46,4 +47,5 @@ private extension HomeHeader {
             trailing: trailingAnchor
         )
     }
+    
 }

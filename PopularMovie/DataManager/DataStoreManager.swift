@@ -8,8 +8,7 @@
 import Foundation
 import CoreData
 
-class DataStoreManager {
-	
+final class DataStoreManager {
 	
 	static let shared = DataStoreManager()
 	
@@ -135,4 +134,5 @@ class DataStoreManager {
 		} catch {
 		}
 	}
+    
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailLabelCell: UICollectionViewCell {
+final class DetailLabelCell: UICollectionViewCell {
 	
 	var movie: DetailMovie? {
 		didSet {
@@ -28,25 +28,38 @@ class DetailLabelCell: UICollectionViewCell {
 		}
 	}
 	
-	let titleLabel = UILabel(text: "Some Film", font: .boldSystemFont(ofSize: 28), numberOfLines: 2, color: .white)
-	let ratingLabel = UILabel(text: "0.0", font: .boldSystemFont(ofSize: 16), color: .yellow)
-	let yearLabel = UILabel(text: "None", font: .systemFont(ofSize: 16), color: .white)
-	let genreLabel = UILabel(text: "None", font: .systemFont(ofSize: 16), color: .white)
-	let countryLabel = UILabel(text: "None", font: .systemFont(ofSize: 16), color: .white)
-	let filmLength = UILabel(text: "000", font: .systemFont(ofSize: 16), color: .white)
-	let descriptionLabel = UILabel(text: "", font: .systemFont(ofSize: 14), numberOfLines: 25, color: .gray)
+    lazy var titleLabel = UILabel(text: "", font: .boldSystemFont(ofSize: 28), numberOfLines: 2, color: .white)
+    lazy var ratingLabel = UILabel(text: "", font: .boldSystemFont(ofSize: 16), color: .yellow)
+    lazy var yearLabel = UILabel(text: "", font: .systemFont(ofSize: 16), color: .white)
+    lazy var genreLabel = UILabel(text: "", font: .systemFont(ofSize: 16), color: .white)
+    lazy var countryLabel = UILabel(text: "", font: .systemFont(ofSize: 16), color: .white)
+    lazy var filmLength = UILabel(text: "", font: .systemFont(ofSize: 16), color: .white)
+    lazy var descriptionLabel = UILabel(text: "", font: .systemFont(ofSize: 14), numberOfLines: 25, color: .gray)
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		let verticalStack = VerticalStackView(arrangedSubviews: [
-			titleLabel, ratingLabel, yearLabel, genreLabel, countryLabel, filmLength, descriptionLabel, UIView()
-		], spacing: 15)
-		
-		addSubview(verticalStack)
-		verticalStack.fillSuperview(padding: .init(top: 0, left: 16, bottom: 50, right: 16))
+		initialize()
 	}
 	
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+    
+}
+
+private extension DetailLabelCell {
+    func initialize() {
+        let verticalStack = VerticalStackView(arrangedSubviews: [
+            titleLabel, ratingLabel,
+            yearLabel, genreLabel,
+            countryLabel, filmLength,
+            descriptionLabel, UIView()
+        ], spacing: 15)
+        
+        addSubview(verticalStack)
+        verticalStack.fillSuperview(padding: .init(
+            top: 0, left: 16,
+            bottom: 50, right: 16)
+        )
+    }
 }

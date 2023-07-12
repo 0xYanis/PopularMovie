@@ -11,6 +11,8 @@ final class CacheManager {
     
     static let shared = CacheManager()
     
+    private init() {}
+    
     private let cache = NSCache<NSString, AnyObject>()
     
     func saveObject(_ object: AnyObject, forKey key: String) {
@@ -20,4 +22,5 @@ final class CacheManager {
     func getObject(forKey key: String) -> AnyObject? {
         cache.object(forKey: key as NSString)
     }
+    
 }

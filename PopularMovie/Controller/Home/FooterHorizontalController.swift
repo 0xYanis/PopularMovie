@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FooterHorizontalController: HorizontalSnappingController {
+final class FooterHorizontalController: HorizontalSnappingController {
     
     private let cellId = "cellId"
     
@@ -45,6 +45,7 @@ class FooterHorizontalController: HorizontalSnappingController {
         
         return cell
     }
+    
 }
 
 private extension FooterHorizontalController {
@@ -60,6 +61,7 @@ private extension FooterHorizontalController {
             bottom: 0, right: 15
         )
     }
+    
 }
 
 //MARK: - DelegateFlowLayout protocol

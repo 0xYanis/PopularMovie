@@ -17,26 +17,7 @@ final class HomeFooterCell: UICollectionViewCell {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		
-		
-		backgroundColor = .NavBarTextColor
-		layer.cornerRadius = 10
-		
-		setupImageView()
-		
-		
-		let verticalStack = VerticalStackView(arrangedSubviews: [
-		nameLabel, dateLabel, ratingLabel, descriptionLabel, UIView()
-		], spacing: 8)
-		
-		
-		let horizontalStack = UIStackView(arrangedSubviews: [
-		imageView, verticalStack, UIView()
-		], customSpacing: 8)
-		
-		
-		addSubview(horizontalStack)
-		horizontalStack.fillSuperview(padding: .init(top: 8, left: 8, bottom: 8, right: 8))
+        initialize()
 	}
 	
 	
@@ -44,10 +25,36 @@ final class HomeFooterCell: UICollectionViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	
-	private func setupImageView() {
-		imageView.clipsToBounds = true
-		imageView.contentMode = .scaleAspectFill
-		imageView.constrainWidth(constant: 120)
-	}
+}
+
+private extension HomeFooterCell {
+    func initialize() {
+        backgroundColor = .NavBarTextColor
+        layer.cornerRadius = 10
+        
+        setupImageView()
+        
+        
+        let verticalStack = VerticalStackView(arrangedSubviews: [
+        nameLabel, dateLabel, ratingLabel, descriptionLabel, UIView()
+        ], spacing: 8)
+        
+        
+        let horizontalStack = UIStackView(arrangedSubviews: [
+        imageView, verticalStack, UIView()
+        ], customSpacing: 8)
+        
+        
+        addSubview(horizontalStack)
+        horizontalStack.fillSuperview(padding: .init(
+            top: 8, left: 8,
+            bottom: 8, right: 8)
+        )
+    }
+    
+    func setupImageView() {
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.constrainWidth(constant: 120)
+    }
 }

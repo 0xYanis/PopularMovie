@@ -7,9 +7,9 @@
 
 import UIKit
 
-class HeaderHorizontalController: HorizontalSnappingController {
+final class HeaderHorizontalController: HorizontalSnappingController {
 	
-	fileprivate let cellId = "cellId"
+	private let cellId = "cellId"
 	
 	var popularMovies: Page?
 	var didSelectHandler: ((Film)->())?
@@ -23,7 +23,7 @@ class HeaderHorizontalController: HorizontalSnappingController {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-		return popularMovies?.films.count ?? 0
+		popularMovies?.films.count ?? 0
 	}
 	
 	
@@ -31,12 +31,16 @@ class HeaderHorizontalController: HorizontalSnappingController {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeHeaderCell
+		let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: cellId,
+            for: indexPath) as! HomeHeaderCell
 		let movie = popularMovies?.films[indexPath.item]
+        
 		cell.imageView.loadImage(urlString: movie?.posterUrlPreview ?? "")
 		cell.nameLabel.text = movie?.nameEn ?? movie?.nameRu
 		cell.dateLabel.text = movie?.year ?? "2023"
 		cell.ratingLabel.text = movie?.rating ?? "0.0"
+        
 		return cell
 	}
 	
@@ -49,6 +53,7 @@ class HeaderHorizontalController: HorizontalSnappingController {
 			didSelectHandler?(film)
 		}
 	}
+    
 }
 
 private extension HeaderHorizontalController {
@@ -58,6 +63,7 @@ private extension HeaderHorizontalController {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.contentInset = .init(top: 0, left: 15, bottom: 0, right: 15)
     }
+    
 }
 
 // MARK: - DelegateFlowLayout protocol
@@ -87,4 +93,5 @@ extension HeaderHorizontalController: UICollectionViewDelegateFlowLayout {
     ) -> CGFloat {
 		15
 	}
+    
 }

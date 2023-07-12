@@ -7,17 +7,22 @@
 
 import UIKit
 
-class BaseTabBarController: UITabBarController {
+final class BaseTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialize()
+    }
+    
+}
+
+private extension BaseTabBarController {
+    func initialize() {
         clearTabBar()
         createTabBar()
         setTabBarAppearance()
     }
-}
-
-private extension BaseTabBarController {
+    
     func clearTabBar() {
         tabBar.backgroundImage = UIImage()
         tabBar.backgroundColor = .clear
@@ -26,10 +31,30 @@ private extension BaseTabBarController {
     
     func createTabBar() {
         viewControllers = [
-            createNavController(HomePageController(), title: "Movve", tabbarTitle: "Home", imageName: "house.fill"),
-            createNavController(MediaPageController(), title: "Media", tabbarTitle: "Media", imageName: "film.fill"),
-            createNavController(UIViewController(), title: "Search", tabbarTitle: "Search", imageName: "magnifyingglass"),
-            createNavController(UIViewController(), title: "Account", tabbarTitle: "Account", imageName: "person.fill")
+            createNavController(
+                HomePageController(),
+                title: "Movve",
+                tabbarTitle: "Home",
+                imageName: "house.fill"
+            ),
+            createNavController(
+                MediaPageController(),
+                title: "Media",
+                tabbarTitle: "Media",
+                imageName: "film.fill"
+            ),
+            createNavController(
+                UIViewController(),
+                title: "Search",
+                tabbarTitle: "Search",
+                imageName: "magnifyingglass"
+            ),
+            createNavController(
+                UIViewController(),
+                title: "Account",
+                tabbarTitle: "Account",
+                imageName: "person.fill"
+            )
         ]
     }
     
@@ -39,13 +64,16 @@ private extension BaseTabBarController {
         tabbarTitle: String,
         imageName: String
     ) -> UIViewController {
-        let navController = UINavigationController(rootViewController: viewController)
+        let navController = UINavigationController(
+            rootViewController: viewController
+        )
         
         navController.navigationBar.prefersLargeTitles = true
         navController.navigationBar.barStyle = .black
         viewController.navigationItem.title = title
         navController.tabBarItem.title = tabbarTitle
         navController.tabBarItem.image = UIImage(systemName: imageName)
+        
         return navController
     }
     
@@ -75,4 +103,5 @@ private extension BaseTabBarController {
         tabBar.tintColor = UIColor.tabBarItemAccent
         tabBar.unselectedItemTintColor = UIColor.tabBarItemLight
     }
+    
 }

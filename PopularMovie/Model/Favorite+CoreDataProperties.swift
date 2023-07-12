@@ -22,9 +22,6 @@ extension Favorite {
     @NSManaged public var title: String?
     @NSManaged public var year: Int16
     @NSManaged public var isFavorite: Bool
-
 }
 
-extension Favorite : Identifiable {
-
-}
+extension Favorite : Identifiable {}
