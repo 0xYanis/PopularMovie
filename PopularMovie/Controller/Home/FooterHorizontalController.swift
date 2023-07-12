@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class FooterHorizontalController: HorizontalSnappingController {
     
@@ -37,7 +38,7 @@ final class FooterHorizontalController: HorizontalSnappingController {
         let topAwait = mostExpected?.films[indexPath.item]
         let genres = topAwait?.genres.first
         
-        cell.imageView.loadImage(urlString: topAwait?.posterUrlPreview ?? "")
+        cell.imageView.sd_setImage(with: URL(string: topAwait?.posterUrlPreview ?? ""))
         cell.nameLabel.text = topAwait?.nameRu ?? topAwait?.nameEn ?? ""
         cell.dateLabel.text = "Год выхода: " + (topAwait?.year ?? "")
         cell.ratingLabel.text = "Рейтинг: " + (topAwait?.rating ?? "")

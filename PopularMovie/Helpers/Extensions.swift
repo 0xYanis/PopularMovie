@@ -17,7 +17,6 @@ extension UILabel {
 	}
 }
 
-
 extension UIImageView {
 	convenience init(cornerRadius: CGFloat) {
 		self.init(image: nil)
@@ -26,7 +25,6 @@ extension UIImageView {
 		self.contentMode = .scaleAspectFill
 	}
 }
-
 
 extension UIButton {
 	convenience init(height: CGFloat, width: CGFloat, cornerRadius: CGFloat) {
@@ -38,30 +36,12 @@ extension UIButton {
 	}
 }
 
-
 extension UIStackView {
 	convenience init(arrangedSubviews: [UIView], customSpacing: CGFloat = 0) {
 		self.init(arrangedSubviews: arrangedSubviews)
 		self.spacing = customSpacing
 	}
 }
-
-
-extension UIImageView {
-	func loadImage(urlString: String) {
-		guard let url = URL(string: urlString) else { return }
-		DispatchQueue.global().async { [weak self] in
-			if let data = try? Data(contentsOf: url) {
-				if let image = UIImage(data: data) {
-					DispatchQueue.main.async {
-						self?.image = image
-					}
-				}
-			}
-		}
-	}
-}
-
 
 extension UIColor {
 	static var tabBarItemAccent: UIColor {
@@ -77,7 +57,6 @@ extension UIColor {
 		#colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
 	}
 }
-
 
 extension UIViewController {
 	func setTabBarHidden(_ hidden: Bool, animated: Bool = true, duration: TimeInterval = 0.3) {

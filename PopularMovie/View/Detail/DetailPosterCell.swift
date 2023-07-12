@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class DetailPosterCell: UICollectionViewCell {
 	
 	var movie: DetailMovie! {
 		didSet {
-			imageView.loadImage(urlString: movie?.posterUrl ?? "")
-			backImage.loadImage(urlString: movie?.posterUrl ?? "")
+            imageView.sd_setImage(with: URL(string: movie?.posterUrl ?? ""))
+            backImage.sd_setImage(with: URL(string: movie?.posterUrl ?? ""))
 		}
 	}
 	

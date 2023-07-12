@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class HomeHorizontalController: BaseController {
     
@@ -41,7 +42,7 @@ final class HomeHorizontalController: BaseController {
         let tvResult = tvGroup?.items[indexPath.item]
         let nonOptionalYear = tvResult?.year ?? 1337
         
-        cell.imageView.loadImage(urlString: tvResult?.posterUrlPreview ?? "")
+        cell.imageView.sd_setImage(with: URL(string: tvResult?.posterUrlPreview ?? ""))
         cell.nameLabel.text = tvResult?.nameRu ?? tvResult?.nameOriginal
         cell.dateLabel.text = String(describing: nonOptionalYear)
         

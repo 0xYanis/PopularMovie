@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import SDWebImage
 
 class MediaPageController: BaseController {
 	
@@ -47,7 +48,7 @@ class MediaPageController: BaseController {
 		let title = film.value(forKey: "title") as? String ?? ""
 		let year = film.value(forKey: "year") as? Int16 ?? 0
         
-		cell.imageView.loadImage(urlString: image)
+		cell.imageView.sd_setImage(with: URL(string: image))
 		cell.nameLabel.text = title
 		cell.dateLabel.text = "\(year)"
         

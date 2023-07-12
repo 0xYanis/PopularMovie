@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class HeaderHorizontalController: HorizontalSnappingController {
 	
@@ -36,7 +37,7 @@ final class HeaderHorizontalController: HorizontalSnappingController {
             for: indexPath) as! HomeHeaderCell
 		let movie = popularMovies?.films[indexPath.item]
         
-		cell.imageView.loadImage(urlString: movie?.posterUrlPreview ?? "")
+        cell.imageView.sd_setImage(with: URL(string: movie?.posterUrlPreview ?? ""))
 		cell.nameLabel.text = movie?.nameEn ?? movie?.nameRu
 		cell.dateLabel.text = movie?.year ?? "2023"
 		cell.ratingLabel.text = movie?.rating ?? "0.0"
