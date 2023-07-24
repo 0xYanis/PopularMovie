@@ -20,31 +20,45 @@ final class Service {
     
     private init() {}
     
-    func fetchMovies(completion: @escaping (Page?, Error?) -> ()) {
+    func fetchMovies(
+        completion: @escaping (Page?, Error?) -> ()
+    ) {
         let urlString: URLStrings = .movies
         fetchGenericJSONData(urlString.rawValue, completion: completion)
     }
     
-    func fetchTVSeries(completion: @escaping (TVGroup?, Error?) -> ()) {
+    func fetchTVSeries(
+        completion: @escaping (TVGroup?, Error?) -> ()
+    ) {
         let urlString: URLStrings = .tvSeries
         fetchGenericJSONData(urlString.rawValue, completion: completion)
     }
     
-    func fetchMiniSeries(completion: @escaping (TVGroup?, Error?) -> ()) {
+    func fetchMiniSeries(
+        completion: @escaping (TVGroup?, Error?) -> ()
+    ) {
         let urlString: URLStrings = .miniSeries
         fetchGenericJSONData(urlString.rawValue, completion: completion)
     }
     
-    func fetchMostExpected(completion: @escaping (MostExpected?, Error?) -> ()) {
+    func fetchMostExpected(
+        completion: @escaping (MostExpected?, Error?) -> ()
+    ) {
         let urlString: URLStrings = .mostExpected
         fetchGenericJSONData(urlString.rawValue, completion: completion)
     }
     
-    func fetchGenericJSONData<T: Decodable>(_ urlString: String, completion: @escaping (T?, Error?) -> ()) {
+}
+
+extension Service {
+    func fetchGenericJSONData<T: Decodable>(
+        _ urlString: String,
+        completion: @escaping (T?, Error?) -> ()
+    ) {
         if let cachedObject = CacheManager.shared.getObject(forKey: urlString) as? T {
-            completion(cachedObject, nil)
-            return
+            completion(cachedObject, nil); return
         }
+        
         guard let url = URL(string: urlString) else { return }
         
         var request = URLRequest(url:url)
@@ -62,12 +76,12 @@ final class Service {
             do {
                 let objects = try JSONDecoder().decode(T.self, from: data!)
                 completion(objects, nil)
-                
                 CacheManager.shared.saveObject(objects as AnyObject, forKey: urlString)
             } catch {
                 completion(nil, error)
             }
-        }.resume()
+        }
+        .resume()
     }
     
 }
