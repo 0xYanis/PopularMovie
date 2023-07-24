@@ -109,6 +109,7 @@ class HomeDetailController: BaseController {
 }
 
 private extension HomeDetailController {
+    
     func setupCollectionView() {
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.backgroundColor = .black
@@ -196,9 +197,11 @@ private extension HomeDetailController {
             title: popularMovies?.nameRu ?? ""
         )
     }
+    
 }
 
 extension HomeDetailController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
@@ -221,4 +224,5 @@ extension HomeDetailController: UICollectionViewDelegateFlowLayout {
     ) -> CGFloat {
         .zero
     }
+    
 }

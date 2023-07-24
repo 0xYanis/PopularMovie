@@ -28,6 +28,7 @@ private extension DetailControlCell {
     func initialize() {
         backgroundColor = .black
         setupButtons()
+        
         let buttonStack = UIStackView(arrangedSubviews: [
         shareButton, linkButton, likeButton
         ], customSpacing: 30)

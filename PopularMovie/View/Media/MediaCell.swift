@@ -26,6 +26,7 @@ final class MediaCell: UICollectionViewCell {
 }
 
 private extension MediaCell {
+    
     func initialize() {
         setupImageView()
         let stackView = VerticalStackView(arrangedSubviews: [

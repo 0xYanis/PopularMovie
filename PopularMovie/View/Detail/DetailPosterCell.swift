@@ -33,6 +33,7 @@ final class DetailPosterCell: UICollectionViewCell {
 }
 
 private extension DetailPosterCell {
+    
     func setupBlurBackground() {
         let blurEffect = UIBlurEffect(style: .dark)
         let blurView = UIVisualEffectView(effect: blurEffect)

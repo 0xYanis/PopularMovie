@@ -28,13 +28,36 @@ final class DetailLabelCell: UICollectionViewCell {
 		}
 	}
 	
-    lazy var titleLabel = UILabel(text: "", font: .boldSystemFont(ofSize: 28), numberOfLines: 2, color: .white)
-    lazy var ratingLabel = UILabel(text: "", font: .boldSystemFont(ofSize: 16), color: .yellow)
-    lazy var yearLabel = UILabel(text: "", font: .systemFont(ofSize: 16), color: .white)
-    lazy var genreLabel = UILabel(text: "", font: .systemFont(ofSize: 16), color: .white)
-    lazy var countryLabel = UILabel(text: "", font: .systemFont(ofSize: 16), color: .white)
-    lazy var filmLength = UILabel(text: "", font: .systemFont(ofSize: 16), color: .white)
-    lazy var descriptionLabel = UILabel(text: "", font: .systemFont(ofSize: 14), numberOfLines: 25, color: .gray)
+    lazy var titleLabel = UILabel(
+        text: "",
+        font: .boldSystemFont(ofSize: 28),
+        numberOfLines: 2,
+        color: .white)
+    lazy var ratingLabel = UILabel(
+        text: "",
+        font: .boldSystemFont(ofSize: 16),
+        color: .yellow)
+    lazy var yearLabel = UILabel(
+        text: "",
+        font: .systemFont(ofSize: 16),
+        color: .white)
+    lazy var genreLabel = UILabel(
+        text: "",
+        font: .systemFont(ofSize: 16),
+        color: .white)
+    lazy var countryLabel = UILabel(
+        text: "",
+        font: .systemFont(ofSize: 16),
+        color: .white)
+    lazy var filmLength = UILabel(
+        text: "",
+        font: .systemFont(ofSize: 16),
+        color: .white)
+    lazy var descriptionLabel = UILabel(
+        text: "",
+        font: .systemFont(ofSize: 14),
+        numberOfLines: 25,
+        color: .gray)
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -48,6 +71,7 @@ final class DetailLabelCell: UICollectionViewCell {
 }
 
 private extension DetailLabelCell {
+    
     func initialize() {
         let verticalStack = VerticalStackView(arrangedSubviews: [
             titleLabel, ratingLabel,
@@ -62,4 +86,5 @@ private extension DetailLabelCell {
             bottom: 50, right: 16)
         )
     }
+    
 }

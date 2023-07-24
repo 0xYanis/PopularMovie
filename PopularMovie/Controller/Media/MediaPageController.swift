@@ -34,7 +34,6 @@ class MediaPageController: BaseController {
 		favoriteFilm.count
 	}
 	
-	
 	override func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
@@ -54,9 +53,11 @@ class MediaPageController: BaseController {
         
 		return cell
 	}
+    
 }
 
 private extension MediaPageController {
+    
     func setupCollectionView() {
         collectionView.backgroundColor = UIColor(named: "background")
         collectionView.showsVerticalScrollIndicator = false
@@ -67,10 +68,10 @@ private extension MediaPageController {
     }
     
     func fetchAllFilms(){
-        if DataStoreManager.shared.fetchAllFilms() != nil {
-            favoriteFilm = DataStoreManager.shared.fetchAllFilms()!
-            collectionView.reloadData()
-        }
+        guard let fetchedFilms = DataStoreManager.shared
+            .fetchAllFilms() else { return }
+        self.favoriteFilm = fetchedFilms
+        collectionView.reloadData()
     }
     
     func setupRefreshControl() {
@@ -87,9 +88,11 @@ private extension MediaPageController {
         collectionView.reloadData()
         refreshControl.endRefreshing()
     }
+    
 }
 
 extension MediaPageController: UICollectionViewDelegateFlowLayout {
+    
 	func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
@@ -98,7 +101,6 @@ extension MediaPageController: UICollectionViewDelegateFlowLayout {
 		.init(width: view.frame.width, height: 100)
 	}
 	
-	
 	func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
@@ -106,5 +108,6 @@ extension MediaPageController: UICollectionViewDelegateFlowLayout {
     ) -> CGFloat {
 		15
 	}
+    
 }
 
