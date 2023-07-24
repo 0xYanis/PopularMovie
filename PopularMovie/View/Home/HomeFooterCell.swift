@@ -10,10 +10,22 @@ import UIKit
 final class HomeFooterCell: UICollectionViewCell {
     
     lazy var imageView = UIImageView(cornerRadius: 10)
-    lazy var nameLabel = UILabel(text: "Name of Movie", font: .boldSystemFont(ofSize: 17), color: .white)
-    lazy var dateLabel = UILabel(text: "Date: Aug. 22, 2020", font: .systemFont(ofSize: 16), color: .white)
-    lazy var ratingLabel = UILabel(text: "Rating: 9.1", font: .systemFont(ofSize: 16), color: .white)
-    lazy var descriptionLabel = UILabel(text: "Сюжет", font: .systemFont(ofSize: 16), color: .white)
+    lazy var nameLabel = UILabel(
+        text: "Name of Movie",
+        font: .boldSystemFont(ofSize: 17),
+        color: .white)
+    lazy var dateLabel = UILabel(
+        text: "Date: Aug. 22, 2020",
+        font: .systemFont(ofSize: 16),
+        color: .white)
+    lazy var ratingLabel = UILabel(
+        text: "Rating: 9.1",
+        font: .systemFont(ofSize: 16),
+        color: .white)
+    lazy var descriptionLabel = UILabel(
+        text: "Сюжет",
+        font: .systemFont(ofSize: 16),
+        color: .white)
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -28,6 +40,7 @@ final class HomeFooterCell: UICollectionViewCell {
 }
 
 private extension HomeFooterCell {
+    
     func initialize() {
         backgroundColor = .NavBarTextColor
         layer.cornerRadius = 10
@@ -57,4 +70,5 @@ private extension HomeFooterCell {
         imageView.contentMode = .scaleAspectFill
         imageView.constrainWidth(constant: 120)
     }
+    
 }
