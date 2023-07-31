@@ -10,8 +10,15 @@ import UIKit
 final class MediaCell: UICollectionViewCell {
 	
 	lazy var imageView = UIImageView(cornerRadius: 10)
-    lazy var nameLabel = UILabel(text: "Name of Movie", font: .systemFont(ofSize: 18),numberOfLines: 2, color: .white)
-    lazy var dateLabel = UILabel(text: "Aug. 22, 2020", font: .systemFont(ofSize: 16), color: .gray)
+    lazy var nameLabel = UILabel(
+        text: "Name of Movie",
+        font: .systemFont(ofSize: 18),
+        numberOfLines: 2,
+        color: .white)
+    lazy var dateLabel = UILabel(
+        text: "Aug. 22, 2020",
+        font: .systemFont(ofSize: 16),
+        color: .gray)
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -20,7 +27,7 @@ final class MediaCell: UICollectionViewCell {
 	
 	
 	required init?(coder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
+		fatalError("")
 	}
     
 }

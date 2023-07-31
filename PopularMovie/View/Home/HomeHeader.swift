@@ -29,6 +29,7 @@ final class HomeHeader: UICollectionReusableView {
 }
 
 private extension HomeHeader {
+    
     func initialize() {
         addSubview(titleLabel)
         titleLabel.anchor(

@@ -12,8 +12,9 @@ final class DetailPosterCell: UICollectionViewCell {
 	
 	var movie: DetailMovie! {
 		didSet {
-            imageView.sd_setImage(with: URL(string: movie?.posterUrl ?? ""))
-            backImage.sd_setImage(with: URL(string: movie?.posterUrl ?? ""))
+            let url = URL(string: movie?.posterUrl ?? "")
+            imageView.sd_setImage(with: url)
+            backImage.image = imageView.image
 		}
 	}
 	
@@ -27,7 +28,7 @@ final class DetailPosterCell: UICollectionViewCell {
 	}
 	
 	required init?(coder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
+		fatalError("")
 	}
     
 }

@@ -29,6 +29,7 @@ final class HomeFooter: UICollectionReusableView {
 }
 
 private extension HomeFooter {
+    
     func initialize() {
         addSubview(titleLabel)
         titleLabel.anchor(
@@ -47,4 +48,5 @@ private extension HomeFooter {
             trailing: trailingAnchor,
             padding: .init(top: 0, left: 0, bottom: 25, right: 0))
     }
+    
 }

@@ -29,6 +29,7 @@ final class HomeGroupCell: UICollectionViewCell {
 }
 
 private extension HomeGroupCell {
+    
     func initialize() {
         addSubview(titleLabel)
         titleLabel.anchor(

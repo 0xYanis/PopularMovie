@@ -39,6 +39,7 @@ final class HomeHeaderCell: UICollectionViewCell {
 }
 
 private extension HomeHeaderCell {
+    
     func initialize() {
         let horizontalStack = UIStackView(
             arrangedSubviews: [

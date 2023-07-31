@@ -9,9 +9,18 @@ import UIKit
 
 final class DetailControlCell: UICollectionViewCell {
 	
-    lazy var shareButton = UIButton(height: 40, width: 40, cornerRadius: 20)
-    lazy var linkButton = UIButton(height: 40, width: 100, cornerRadius: 20)
-    lazy var likeButton = UIButton(height: 40, width: 40, cornerRadius: 20)
+    lazy var shareButton = UIButton(
+        height: 40,
+        width: 40,
+        cornerRadius: 20)
+    lazy var linkButton = UIButton(
+        height: 40,
+        width: 100,
+        cornerRadius: 20)
+    lazy var likeButton = UIButton(
+        height: 40,
+        width: 40,
+        cornerRadius: 20)
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -19,7 +28,7 @@ final class DetailControlCell: UICollectionViewCell {
 	}
 	
 	required init?(coder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
+		fatalError("")
 	}
     
 }

@@ -34,6 +34,7 @@ final class HomeRowCell: UICollectionViewCell {
 }
 
 private extension HomeRowCell {
+    
     func initialize() {
         let stackView = VerticalStackView(arrangedSubviews: [
             imageView, nameLabel, dateLabel
@@ -41,4 +42,5 @@ private extension HomeRowCell {
         addSubview(stackView)
         stackView.fillSuperview()
     }
+    
 }
