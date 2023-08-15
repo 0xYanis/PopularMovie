@@ -43,7 +43,6 @@
 		09EB98E0299802A300995DD4 /* DetailPosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB98DF299802A300995DD4 /* DetailPosterCell.swift */; };
 		09EB98E229980A6F00995DD4 /* DetailLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB98E129980A6F00995DD4 /* DetailLabelCell.swift */; };
 		09EB98E62998243500995DD4 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB98E52998243500995DD4 /* Detail.swift */; };
-		09FADEB72A092EC10000270A /* CasheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FADEB62A092EC10000270A /* CasheManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,7 +83,6 @@
 		09EB98DF299802A300995DD4 /* DetailPosterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPosterCell.swift; sourceTree = "<group>"; };
 		09EB98E129980A6F00995DD4 /* DetailLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLabelCell.swift; sourceTree = "<group>"; };
 		09EB98E52998243500995DD4 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
-		09FADEB62A092EC10000270A /* CasheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				09C4B67829965E2D00F49402 /* Service.swift */,
-				09FADEB62A092EC10000270A /* CasheManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -372,7 +369,6 @@
 				09C4B67929965E2D00F49402 /* Service.swift in Sources */,
 				09EB98DD2997E01400995DD4 /* HomeDetailController.swift in Sources */,
 				099D258E299E98C600399AE5 /* MediaCell.swift in Sources */,
-				09FADEB72A092EC10000270A /* CasheManager.swift in Sources */,
 				092C70D629A117E8005FF318 /* DataBaseModel.xcdatamodeld in Sources */,
 				091F4C082993D38C00274A9B /* SceneDelegate.swift in Sources */,
 				09672FA12995B98300931891 /* SnappingLayout.swift in Sources */,

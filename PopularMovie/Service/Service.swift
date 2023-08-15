@@ -24,28 +24,40 @@ final class Service {
         completion: @escaping (Page?, Error?) -> ()
     ) {
         let urlString: URLStrings = .movies
-        fetchGenericJSONData(urlString.rawValue, completion: completion)
+        fetchGenericJSONData(
+            urlString.rawValue,
+            completion: completion
+        )
     }
     
     func fetchTVSeries(
         completion: @escaping (TVGroup?, Error?) -> ()
     ) {
         let urlString: URLStrings = .tvSeries
-        fetchGenericJSONData(urlString.rawValue, completion: completion)
+        fetchGenericJSONData(
+            urlString.rawValue,
+            completion: completion
+        )
     }
     
     func fetchMiniSeries(
         completion: @escaping (TVGroup?, Error?) -> ()
     ) {
         let urlString: URLStrings = .miniSeries
-        fetchGenericJSONData(urlString.rawValue, completion: completion)
+        fetchGenericJSONData(
+            urlString.rawValue,
+            completion: completion
+        )
     }
     
     func fetchMostExpected(
         completion: @escaping (MostExpected?, Error?) -> ()
     ) {
         let urlString: URLStrings = .mostExpected
-        fetchGenericJSONData(urlString.rawValue, completion: completion)
+        fetchGenericJSONData(
+            urlString.rawValue,
+            completion: completion
+        )
     }
     
 }
@@ -63,7 +75,7 @@ extension Service {
         request.setValue("application/json", forHTTPHeaderField: "accept")
         request.setValue("0f8b1961-213e-4781-b4ad-0d70764fa882", forHTTPHeaderField: "X-API-KEY")
         
-        URLSession.shared.dataTask(with: request) { (data, _, err) in
+        URLSession.shared.dataTask(with: request) { data, _, err in
             if let err = err {
                 completion(nil, err)
                 return
@@ -73,8 +85,8 @@ extension Service {
                 return
             }
             
+            let decoder = JSONDecoder()
             do {
-                let decoder = JSONDecoder()
                 let objects = try decoder.decode(T.self, from: data)
                 completion(objects, nil)
             } catch {
