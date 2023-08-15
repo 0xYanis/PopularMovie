@@ -55,10 +55,6 @@ extension Service {
         _ urlString: String,
         completion: @escaping (T?, Error?) -> ()
     ) {
-        if let cachedObject = CacheManager.shared.getObject(forKey: urlString) as? T {
-            completion(cachedObject, nil); return
-        }
-        
         guard let url = URL(string: urlString) else { return }
         
         var request = URLRequest(url:url)
@@ -73,10 +69,14 @@ extension Service {
                 return
             }
             
+            guard let data = data else {
+                return
+            }
+            
             do {
-                let objects = try JSONDecoder().decode(T.self, from: data!)
+                let decoder = JSONDecoder()
+                let objects = try decoder.decode(T.self, from: data)
                 completion(objects, nil)
-                CacheManager.shared.saveObject(objects as AnyObject, forKey: urlString)
             } catch {
                 completion(nil, error)
             }
